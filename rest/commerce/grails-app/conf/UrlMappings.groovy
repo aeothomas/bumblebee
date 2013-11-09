@@ -2,43 +2,44 @@ class UrlMappings {
 
 	static mappings = {
 		
-		"/merchants"(resources:'merchant', excludes:['create', 'edit']) {
+		// initial routing for commerce REST v1.0
+		"/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1') {
 
-			"/products"(resources:"product", excludes:['create', 'edit']) {
+			"/products"(version:'1.0', resources:"product", excludes:['create', 'edit'], namespace:'v1') {
 
-				"/modifiers"(resources:"modifier", excludes:['create', 'edit'])
+				"/modifiers"(version:'1.0', resources:"modifier", excludes:['create', 'edit'], namespace:'v1')
 
-				"/add-ons"(resources:"add-on", excludes:['create', 'edit'])
+				"/add-ons"(version:'1.0', resources:"add-on", excludes:['create', 'edit'], namespace:'v1')
 			}
 
-			"/employees"(resources:"employee", excludes:['create', 'edit'])
+			"/employees"(version:'1.0', resources:"employee", excludes:['create', 'edit'], namespace:'v1')
 
-			"/payment-types"(resources:"payment-type", excludes:['create', 'edit'])
+			"/payment-types"(version:'1.0', resources:"payment-type", excludes:['create', 'edit'], namespace:'v1')
 
-			"/departments"(resources:"department", excludes:['create', 'edit'])
+			"/departments"(version:'1.0', resources:"department", excludes:['create', 'edit'], namespace:'v1')
 
-			"/suppliers"(resources:"supplier", excludes:['create', 'edit'])
+			"/suppliers"(version:'1.0', resources:"supplier", excludes:['create', 'edit'], namespace:'v1')
 
-			"/raw-goods"(resources:"raw-good", excludes:['create', 'edit'])
+			"/raw-goods"(version:'1.0', resources:"raw-good", excludes:['create', 'edit'], namespace:'v1')
 
-			"/stores"(resources:"store", excludes:['create', 'edit']) {
+			"/stores"(version:'1.0', resources:"store", excludes:['create', 'edit'], namespace:'v1') {
 
-				"/inventory"(resources:"inventory", excludes:['create', 'edit'])
+				"/inventory"(version:'1.0', resources:"inventory", excludes:['create', 'edit'], namespace:'v1')
 
-				"/registers"(resources:"register", excludes:['create', 'edit']) {
+				"/registers"(version:'1.0', resources:"register", excludes:['create', 'edit'], namespace:'v1') {
 
-					"/transactions"(resources:"transaction", excludes:['create', 'edit']) {
+					"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1') {
 
-						"/payments"(resources:"payment", excludes:['create', 'edit'])
+						"/payments"(version:'1.0', resources:"payment", excludes:['create', 'edit'], namespace:'v1')
 
-						"/line-items"(resources:"line-item", excludes:['create', 'edit'])
+						"/line-items"(version:'1.0', resources:"line-item", excludes:['create', 'edit'], namespace:'v1')
 					}
 				}
 
-				"/transactions"(resources:"transaction", excludes:['create', 'edit'])
+				"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 			}
 
-			"/transactions"(resources:"transactions", excludes:['create', 'edit'])
+			"/transactions"(version:'1.0', resources:"transactions", excludes:['create', 'edit'], namespace:'v1')
 		}
 
 		"/"(view:"/index") // TODO: remove default grails page for real app
@@ -61,5 +62,9 @@ class UrlMappings {
 				// apply constraints here
 			}
 		}*/
+		
+		
+		
+		// version 2.0 for the future....
 	}
 }

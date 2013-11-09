@@ -15,7 +15,7 @@ environments {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost:3306/commerce?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = ""
+            password = "root"
         }
 		hibernate {
 			show_sql = true
