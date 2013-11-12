@@ -7,21 +7,18 @@ import com.commerce.global.Country
  */
 class Address {
 
-	String houseNumber;
+	String houseNumber
 
-	String addressLine1;
+	String addressLine1
 
-	String addressLine2;
+	String addressLine2
 
-    String addressLine3;
+	String province
 
-	String province;
+    Country  country
 
-	Country country;
+    String postCode
 
-	String postCode
-	
     static constraints = {
-
     }
 }
