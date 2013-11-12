@@ -13,7 +13,7 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost:3306/commerce?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost:3306/commerce?useUnicode=yes&characterEncoding=UTF-8&DB_CLOSE_ON_EXIT=FALSE"
             username = "root"
             password = "root"
         }
