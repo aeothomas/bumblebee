@@ -39,7 +39,7 @@ class UrlMappings {
 				"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 			}
 
-			"/transactions"(version:'1.0', resources:"transactions", excludes:['create', 'edit'], namespace:'v1')
+			"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 		}
 
 		"/"(view:"/index") // TODO: remove default grails page for real app
