@@ -1,6 +1,6 @@
 package com.commerce
 
-class HttpResponseController {
+class ServerErrorController {
 
     def index() {}
 }

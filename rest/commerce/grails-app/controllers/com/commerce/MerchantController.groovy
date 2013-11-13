@@ -10,5 +10,7 @@ class MerchantController extends CommerceRestController {
         //super(Merchant)
     }
 
-    def index() { }
+    def index() {
+        render "HELLO WORLD"
+    }
 }
