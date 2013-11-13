@@ -62,7 +62,7 @@ grails.hibernate.cache.queries = false
 /**
  *
  */
-grails.databinding.convertEmptyStringsToNull = false
+//grails.databinding.convertEmptyStringsToNull = false
 
 environments {
     development {

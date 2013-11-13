@@ -3,12 +3,14 @@ package mock
 import com.commerce.business.*
 import com.commerce.global.Country
 import com.commerce.inventory.InventoryItem
+import com.commerce.inventory.StoreInventory
 import com.commerce.products.Product
 import com.commerce.products.ProductCategory
 import com.commerce.products.ProductPricingType
 import com.commerce.products.ProductUnitType
 import com.commerce.store.Store
 import com.commerce.commons.Address
+import com.commerce.suppliers.Supplier
 
 /**
  * Created with IntelliJ IDEA.
@@ -58,8 +60,38 @@ class TestDataBootStrap {
         /**
          * Store
          */
-        Store store = new Store(name:"Store 1", code:"ABC", address: new Address(houseNumber: "1008", addressLine1: "Portland Street",
-                addressLine2: "Westminster", province: "aa",country: gb)).save()
+
+        Address storeAddress =new Address(houseNumber: "1008", addressLine1: "Portland Street",
+                  addressLine2: "Westminster", province: "Greate London",postCode: "EC1",country: gb)
+
+        Store portlandBranch = new Store(name:"Store 1", code:"ABC", address: storeAddress).save()
+
+        /**
+         * Store Inventory
+         */
+
+        StoreInventory latteStoreInventory = new StoreInventory(store: portlandBranch,item: latteInventory, quantity: 100).save()
+
+        /**
+         *   Suppliers
+         */
+
+        Address supplierAddress =new Address(houseNumber: "50", addressLine1: "Oxford Street",
+                addressLine2: "Green Park London", province: "Great London",postCode: "EC1",country: gb)
+
+        Supplier starbucks = new Supplier(name: 'starbucks' , code: "ABCDE" , address: supplierAddress).save()
+
+        println "**************"
+        println starbucks.errors
+
+
+
+
+
+
+
+
+
 
 
 

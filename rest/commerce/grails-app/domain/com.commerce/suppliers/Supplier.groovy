@@ -29,6 +29,8 @@ class Supplier {
 	static hasMany = [rawGood : RawGoodItem, inventoryItem: InventoryItem, storeInventory: StoreInventory]
 	
 	static belongsTo = [RawGoodItem, InventoryItem, StoreInventory]
+
+    static embedded = ['address']
 	
     static constraints = {
        code unique: true, blank: false

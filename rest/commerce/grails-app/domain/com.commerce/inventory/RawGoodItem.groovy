@@ -40,5 +40,9 @@ class RawGoodItem {
 	
     static constraints = {
         name blank:false
+        cost nullable:true
+        quantity nullable:true
+
     }
+
 }

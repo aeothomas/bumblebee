@@ -15,10 +15,12 @@ class Address {
 
 	String province
 
-    Country  country
+    Country country
 
     String postCode
 
     static constraints = {
+         addressLine2 nullable: true
+         province nullable: true
     }
 }
