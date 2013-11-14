@@ -5,32 +5,26 @@ import org.springframework.http.HttpStatus
 class ClientErrorController {
 
     def index() {
-        modelAndView.addObject("code", "1234")
-        model
+        render(view: "clienterror", model: [code:HttpStatus.NOT_FOUND])
     }
 
     def badRequest() {
-        modelAndView.addObject("code", HttpStatus.BAD_REQUEST)
-        model
+        render(view: "clienterror", model: [code:HttpStatus.BAD_REQUEST])
     }
 
     def unauthorised() {
-        modelAndView.addObject("code", HttpStatus.UNAUTHORIZED)
-        model
+        render(view: "clienterror", model: [code:HttpStatus.UNAUTHORIZED])
     }
 
     def forbidden() {
-        modelAndView.addObject("code", HttpStatus.FORBIDDEN)
-        model
+        render(view: "clienterror", model: [code:HttpStatus.FORBIDDEN])
     }
 
     def notFound() {
-        modelAndView.addObject("code", HttpStatus.NOT_FOUND)
-        model
+        render(view: "clienterror", model: [code:HttpStatus.NOT_FOUND])
     }
 
     def methodNotAllowed() {
-        modelAndView.addObject("code", HttpStatus.METHOD_NOT_ALLOWED)
-        model
+        render(view: "clienterror", model: [code:HttpStatus.METHOD_NOT_ALLOWED])
     }
 }

@@ -13,6 +13,6 @@
 </head>
 <body>
         <h1>4xx - Boom</h1>
-        <h2>{code} - Boom</h2>
+        <h2>${code} - Boom</h2>
 </body>
 </html>

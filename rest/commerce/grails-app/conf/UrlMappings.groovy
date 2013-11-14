@@ -46,35 +46,16 @@ class UrlMappings {
 		
 		// handle http code responses
 		"400"(controller: "clientError", action: "badRequest", view: "/clientError/clienterror")
-		"401"(controller: "clientError",
-                action: "unauthorised",
-                view: "/clientError/clienterror")
-		"403"(controller: "clientError",
-                action: "forbidden",
-                view: "/clientError/clienterror")
-		"404"(controller: "clientError",
-                action: "notFound",
-                view: "/clientError/clienterror")
-		"405"(controller: "clientError",
-                action: "methodNotAllowed",
-                view: "/clientError/clienterror")
+		"401"(controller: "clientError", action: "unauthorised", view: "/clientError/clienterror")
+		"403"(controller: "clientError", action: "forbidden", view: "/clientError/clienterror")
+		"404"(controller: "clientError", action: "notFound", view: "/clientError/clienterror")
+		"405"(controller: "clientError", action: "methodNotAllowed", view: "/clientError/clienterror")
 
-		"500"(controller: "serverError",
-                action: "illegalArgument",
-                view: "/serverError/servererror",
-                exception: IllegalArgumentException)
-		"500"(controller: "serverError",
-                action: "nullPointer",
-                view: "/serverError/servererror",
-                exception: NullPointerException)
-		"500"(controller: "serverError",
-                action: "xssException",
-                view: "/serverError/servererror",
-                exception: XSSException)
-		"500"(controller: "serverError",
-                view: "/serverError/servererror")
-		"503"(controller: "serverError",
-                view: "/serverError/servererror")
+		"500"(controller: "serverError", action: "illegalArgument", view: "/serverError/servererror", exception: IllegalArgumentException)
+		"500"(controller: "serverError", action: "nullPointer", view: "/serverError/servererror", exception: NullPointerException)
+		//"500"(controller: "serverError", action: "xssException", view: "/serverError/servererror", exception: XSSException)
+		"500"(controller: "serverError", view: "/serverError/servererror")
+		"503"(controller: "serverError", view: "/serverError/servererror")
 		
 		
 		/*"/$controller/$action?/$id?"{
