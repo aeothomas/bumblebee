@@ -38,5 +38,6 @@ class StoreInventory {
 	
 	
     static constraints = {
+        quantity nuallable:true
     }
 }

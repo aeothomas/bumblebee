@@ -1,7 +1,6 @@
 package com.commerce.inventory
 
-
-import com.commerce.products.Product;
+import com.commerce.products.Product
 import com.commerce.suppliers.Supplier
 
 /**
@@ -40,5 +39,9 @@ class RawGoodItem {
 	
     static constraints = {
         name blank:false
+        cost nullable:true
+        quantity nullable:true
+
     }
+
 }

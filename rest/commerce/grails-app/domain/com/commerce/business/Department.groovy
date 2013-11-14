@@ -1,7 +1,5 @@
 package com.commerce.business
 
-import com.commerce.inventory.StoreInventory
-
 class Department {
 
     String name

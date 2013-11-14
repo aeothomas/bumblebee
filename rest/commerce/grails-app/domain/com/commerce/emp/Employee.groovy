@@ -1,6 +1,5 @@
 package com.commerce.emp
 
-import com.commerce.business.Department
 import com.commerce.commons.Address
 import com.commerce.store.Store
 

@@ -11,18 +11,23 @@ class Store {
 	/**
 	 * The name of store
 	 */
-	String storeName
+	String name
 	/**
 	 * The unique code of store
 	 */
-	String storeCode
+	String code
 	/**
 	 * The address of the store
 	 */
-	Address address 
-	
+	Address address
+
+    /**
+     * Embedded Address
+     */
+    static embedded = ['address']
+
     static constraints = {
-        storeName blank:false
-        storeCode unique: true, blank:false
+        name blank:false
+        code unique: true, blank:false
     }
 }
