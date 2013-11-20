@@ -9,6 +9,8 @@ class AddOnOption {
 
     double price
 
+    static belongsTo = [addonGroup:AddOn]
+
     static constraints = {
     }
 }
