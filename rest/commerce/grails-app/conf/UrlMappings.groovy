@@ -3,6 +3,10 @@ class UrlMappings {
 	static mappings = {
 		
 		// initial routing for commerce REST v1.0
+        "/test"(controller: 'test')
+
+
+
 		"/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1') {
 
 			"/products"(version:'1.0', resources:"product", excludes:['create', 'edit'], namespace:'v1') {
@@ -42,8 +46,10 @@ class UrlMappings {
 			"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 		}
 
+
+
 		"/"(view:"/index") // TODO: remove default grails page for real app
-		
+
 		// handle http code responses
 		"400"(controller: "clientError", action: "badRequest", view: "/clientError/clienterror")
 		"401"(controller: "clientError", action: "unauthorised", view: "/clientError/clienterror")
@@ -57,12 +63,12 @@ class UrlMappings {
 		"500"(controller: "serverError", view: "/serverError/servererror")
 		"503"(controller: "serverError", view: "/serverError/servererror")
 		
-		
-		/*"/$controller/$action?/$id?"{
+		/*
+		"/$controller/$action?/$id?"{
 			constraints {
 				// apply constraints here
 			}
-		}*/
+		} */
 		
 		
 		
