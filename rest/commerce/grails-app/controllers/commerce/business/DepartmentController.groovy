@@ -6,9 +6,4 @@ class DepartmentController extends CommerceRestController {
 
     static namespace = 'v1'
 
-    DepartmentController() {
-        //super(Department)
-    }
-
-    def index() { }
 }

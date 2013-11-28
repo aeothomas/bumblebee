@@ -6,9 +6,4 @@ class PaymentController extends CommerceRestController {
 
     static namespace = 'v1'
 
-    PaymentController() {
-        //super(Payment)
-    }
-
-    def index() { }
 }

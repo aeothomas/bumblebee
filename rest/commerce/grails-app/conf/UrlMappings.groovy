@@ -3,10 +3,6 @@ class UrlMappings {
 	static mappings = {
 		
 		// initial routing for commerce REST v1.0
-        "/test"(controller: 'test')
-
-
-
 		"/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1') {
 
 			"/products"(version:'1.0', resources:"product", excludes:['create', 'edit'], namespace:'v1') {
