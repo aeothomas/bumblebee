@@ -7,6 +7,8 @@ package commerce
 //@Transactional(readOnly = true)
 class MerchantController extends CommerceRestController {
 
+    static namespace = 'v1'
+
     /*
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 

@@ -2,9 +2,22 @@ class UrlMappings {
 
 	static mappings = {
 		
-		// initial routing for commerce REST v1.0
+		/*
+		    Initial routing for commerce REST v1.0
+
+		    Nested resource mappings are used to generate child resources.
+		    Therefore, one needs to explicitly map parent resources to have their resources generated.
+		    Without this a 404 is returned.
+
+		    @author: aeothomas, 2013
+		*/
+
+        // map to merchants and it's children
+        "/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1')
 		"/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1') {
 
+            // map to products and it's children
+            "/products"(version:'1.0', resources:"product", excludes:['create', 'edit'], namespace:'v1')
 			"/products"(version:'1.0', resources:"product", excludes:['create', 'edit'], namespace:'v1') {
 
 				"/modifiers"(version:'1.0', resources:"modifier", excludes:['create', 'edit'], namespace:'v1')
@@ -22,12 +35,18 @@ class UrlMappings {
 
 			"/raw-goods"(version:'1.0', resources:"rawGoodItem", excludes:['create', 'edit'], namespace:'v1')
 
+            // map to stores and it's children
+            "/stores"(version:'1.0', resources:"store", excludes:['create', 'edit'], namespace:'v1')
 			"/stores"(version:'1.0', resources:"store", excludes:['create', 'edit'], namespace:'v1') {
 
 				"/inventory"(version:'1.0', resources:"inventoryItem", excludes:['create', 'edit'], namespace:'v1')
 
-				"/registers"(version:'1.0', resources:"register", excludes:['create', 'edit'], namespace:'v1') {
+				// map to registers and it's children
+                "/registers"(version:'1.0', resources:"register", excludes:['create', 'edit'], namespace:'v1')
+                "/registers"(version:'1.0', resources:"register", excludes:['create', 'edit'], namespace:'v1') {
 
+                    // map to register transactions and it's children
+                    "/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 					"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1') {
 
 						"/payments"(version:'1.0', resources:"payment", excludes:['create', 'edit'], namespace:'v1')
@@ -41,8 +60,6 @@ class UrlMappings {
 
 			"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 		}
-
-
 
 		"/"(view:"/index") // TODO: remove default grails page for real app
 
@@ -65,8 +82,6 @@ class UrlMappings {
 				// apply constraints here
 			}
 		} */
-		
-		
 		
 		// TODO: version 2.0 for the future....
 	}
