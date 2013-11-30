@@ -1,10 +1,12 @@
 package commerce.reg
 
 import commerce.store.Store
+import grails.rest.Resource
 
 /**
  * The register machine
  */
+@Resource()
 class Register {
     /**
      * Unique Code of the register

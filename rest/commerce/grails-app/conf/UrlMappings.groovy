@@ -9,22 +9,22 @@ class UrlMappings {
 
 				"/modifiers"(version:'1.0', resources:"modifier", excludes:['create', 'edit'], namespace:'v1')
 
-				"/add-ons"(version:'1.0', resources:"add-on", excludes:['create', 'edit'], namespace:'v1')
+				"/add-ons"(version:'1.0', resources:"addOn", excludes:['create', 'edit'], namespace:'v1')
 			}
 
 			"/employees"(version:'1.0', resources:"employee", excludes:['create', 'edit'], namespace:'v1')
 
-			"/payment-types"(version:'1.0', resources:"payment-type", excludes:['create', 'edit'], namespace:'v1')
+			"/payment-types"(version:'1.0', resources:"paymentType", excludes:['create', 'edit'], namespace:'v1')
 
 			"/departments"(version:'1.0', resources:"department", excludes:['create', 'edit'], namespace:'v1')
 
 			"/suppliers"(version:'1.0', resources:"supplier", excludes:['create', 'edit'], namespace:'v1')
 
-			"/raw-goods"(version:'1.0', resources:"raw-good", excludes:['create', 'edit'], namespace:'v1')
+			"/raw-goods"(version:'1.0', resources:"rawGoodItem", excludes:['create', 'edit'], namespace:'v1')
 
 			"/stores"(version:'1.0', resources:"store", excludes:['create', 'edit'], namespace:'v1') {
 
-				"/inventory"(version:'1.0', resources:"inventory", excludes:['create', 'edit'], namespace:'v1')
+				"/inventory"(version:'1.0', resources:"inventoryItem", excludes:['create', 'edit'], namespace:'v1')
 
 				"/registers"(version:'1.0', resources:"register", excludes:['create', 'edit'], namespace:'v1') {
 
@@ -32,7 +32,7 @@ class UrlMappings {
 
 						"/payments"(version:'1.0', resources:"payment", excludes:['create', 'edit'], namespace:'v1')
 
-						"/line-items"(version:'1.0', resources:"line-item", excludes:['create', 'edit'], namespace:'v1')
+						"/line-items"(version:'1.0', resources:"lineItem", excludes:['create', 'edit'], namespace:'v1')
 					}
 				}
 
@@ -53,11 +53,11 @@ class UrlMappings {
 		"404"(controller: "clientError", action: "notFound", view: "/clientError/clienterror")
 		"405"(controller: "clientError", action: "methodNotAllowed", view: "/clientError/clienterror")
 
-		"500"(controller: "serverError", action: "illegalArgument", view: "/serverError/servererror", exception: IllegalArgumentException)
-		"500"(controller: "serverError", action: "nullPointer", view: "/serverError/servererror", exception: NullPointerException)
+		//"500"(controller: "serverError", action: "illegalArgument", view: "/serverError/servererror", exception: IllegalArgumentException)
+		//"500"(controller: "serverError", action: "nullPointer", view: "/serverError/servererror", exception: NullPointerException)
 		//"500"(controller: "serverError", action: "xssException", view: "/serverError/servererror", exception: XSSException)
-		"500"(controller: "serverError", view: "/serverError/servererror")
-		"503"(controller: "serverError", view: "/serverError/servererror")
+		"500"(controller: "serverError")
+		"503"(controller: "serverError")
 		
 		/*
 		"/$controller/$action?/$id?"{

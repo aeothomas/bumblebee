@@ -13,6 +13,8 @@
 </head>
 <body>
         <h1>5xx - Boom</h1>
-        <h2>{code} - Boom</h2>
+        <h2>${code} - Boom</h2>
+        <h2>${exception} - BoomBap</h2>
+        <h2>${message} - BoomBapBoom</h2>
 </body>
 </html>

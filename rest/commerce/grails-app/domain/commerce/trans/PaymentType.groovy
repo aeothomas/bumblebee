@@ -1,8 +1,11 @@
 package commerce.trans
 
+import grails.rest.Resource
+
 /**
  * The payment type
  */
+@Resource()
 class PaymentType {
 
 

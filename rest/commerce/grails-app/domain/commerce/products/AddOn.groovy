@@ -1,9 +1,11 @@
 package commerce.products
 
+import grails.rest.Resource
+
 /**
  * Add-On is the domain attached to a product that provide more options to a normal product
  * A product can only have one group of Add-on and a add-on group can have multiple AddOnOption
- */
+ */@Resource()
 class AddOn {
 
     String name

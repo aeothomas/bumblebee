@@ -1,12 +1,14 @@
 package commerce.store
 
 import commerce.commons.Address
+import grails.rest.Resource
 
 /**
  * The store domain represents a store object
  * @author wshao
  *
  */
+@Resource()
 class Store {
 	/**
 	 * The name of store

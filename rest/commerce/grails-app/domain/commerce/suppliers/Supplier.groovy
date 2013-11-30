@@ -4,10 +4,12 @@ import commerce.commons.Address
 import commerce.inventory.InventoryItem
 import commerce.inventory.RawGoodItem
 import commerce.inventory.StoreInventory
+import grails.rest.Resource
 
 /**
  * The Supplier domain
  */
+@Resource()
 class Supplier {
 	
 	/**

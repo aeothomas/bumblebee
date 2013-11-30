@@ -1,5 +1,8 @@
 package commerce.trans
 
+import grails.rest.Resource
+
+@Resource()
 class Payment {
 
     String paymentNum

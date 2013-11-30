@@ -1,17 +1,42 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: a.ogunbowale-thomas
-  Date: 13/11/13
-  Time: 00:27
-  To change this template use File | Settings | File Templates.
---%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="commerce.Merchant" %>
+<!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-</head>
-<body>
-      {Merchant Index}
-</body>
+	<head>
+		<meta name="layout" content="main">
+		<g:set var="entityName" value="${message(code: 'merchant.label', default: 'Merchant')}" />
+		<title><g:message code="default.list.label" args="[entityName]" /></title>
+	</head>
+	<body>
+		<a href="#list-merchant" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div class="nav" role="navigation">
+			<ul>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+			</ul>
+		</div>
+		<div id="list-merchant" class="content scaffold-list" role="main">
+			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<g:if test="${flash.message}">
+				<div class="message" role="status">${flash.message}</div>
+			</g:if>
+			<table>
+			<thead>
+					<tr>
+					
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${merchantInstanceList}" status="i" var="merchantInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+					</tr>
+				</g:each>
+				</tbody>
+			</table>
+			<div class="pagination">
+				<g:paginate total="${merchantInstanceCount ?: 0}" />
+			</div>
+		</div>
+	</body>
 </html>

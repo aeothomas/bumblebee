@@ -2,10 +2,12 @@ package commerce.inventory
 
 import commerce.products.Product
 import commerce.suppliers.Supplier
+import grails.rest.Resource
 
 /**
  * The global inventory item which has a unique sku id
  */
+@Resource()
 class InventoryItem{
 	
 	/**

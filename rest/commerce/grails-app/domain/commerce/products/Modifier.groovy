@@ -1,5 +1,7 @@
 package commerce.products
 
+import grails.rest.Resource
+
 /**
  *
  * The modifier normally is used to put attributes to a same product. for example: size
@@ -9,6 +11,7 @@ package commerce.products
  * @author wshao
  *
  */
+@Resource()
 class Modifier {	
 	/**
 	 * Modifier Name

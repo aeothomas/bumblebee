@@ -57,12 +57,12 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.5"
 
-        build ":tomcat:7.0.42"
+        build ":tomcat:7.0.47"
 
         runtime ":database-migration:1.3.8"
 
         compile ':cache:1.0.1'
-        compile ":hibernate:3.6.10.3"
+        compile ":hibernate:3.6.10.4"
         compile ":scaffolding:2.0.1"
     }
 }

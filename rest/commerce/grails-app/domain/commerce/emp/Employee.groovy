@@ -2,10 +2,12 @@ package commerce.emp
 
 import commerce.commons.Address
 import commerce.store.Store
+import grails.rest.Resource
 
 /**
  * Employ Object
  */
+@Resource()
 class Employee {
 
     /**

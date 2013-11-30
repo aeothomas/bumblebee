@@ -1,5 +1,8 @@
 package commerce.business
 
+import grails.rest.Resource
+
+@Resource()
 class Department {
 
     String name

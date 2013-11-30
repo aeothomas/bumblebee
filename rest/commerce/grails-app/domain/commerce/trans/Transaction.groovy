@@ -3,10 +3,12 @@ package commerce.trans
 import commerce.emp.Employee
 import commerce.reg.Register
 import commerce.store.Store
+import grails.rest.Resource
 
 /**
  *
  */
+@Resource()
 class Transaction {
 
     /**

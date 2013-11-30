@@ -1,10 +1,12 @@
 package commerce.trans
 
 import commerce.inventory.InventoryItem
+import grails.rest.Resource
 
 /**
  * The line item
  */
+@Resource()
 class LineItem {
 
 

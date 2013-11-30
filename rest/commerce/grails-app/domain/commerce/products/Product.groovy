@@ -3,6 +3,7 @@ package commerce.products
 import commerce.business.Department
 import commerce.inventory.InventoryItem
 import commerce.inventory.RawGoodItem
+import grails.rest.Resource
 
 
 /**
@@ -10,6 +11,7 @@ import commerce.inventory.RawGoodItem
  * @author wshao
  *
  */
+@Resource()
 class Product {
 
     /**
