@@ -42,6 +42,11 @@ nimble {
 	}
 
 	localusers {
+        /*
+        usernames {
+            minlength = 4
+            validregex = '[a-zA-Z0-9]*' //regex that should be used for validating username
+        }*/
 		authentication { enabled = true } 
 		registration { enabled = true }
 		provision { active = false }

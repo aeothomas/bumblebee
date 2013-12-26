@@ -62,9 +62,9 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.8"
 
         compile ':cache:1.1.1'
-        compile ":hibernate:3.6.10.4"
+        compile ":hibernate:3.6.10.6"
         compile ":scaffolding:2.0.1"
-        compile (':nimble:0.6') {
+        compile (':nimble:0.7') {
             excludes "servlet-api"
         }
     }

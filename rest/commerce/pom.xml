@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.grails.plugins</groupId>
             <artifactId>hibernate</artifactId>
-            <version>3.6.10.4</version>
+            <version>3.6.10.6</version>
             <type>zip</type>
             <scope>compile</scope>
         </dependency>
