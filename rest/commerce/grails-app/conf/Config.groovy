@@ -92,7 +92,8 @@ log4j = {
            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
            'org.springframework',
            'org.hibernate',
-           'net.sf.ehcache.hibernate'
+           'net.sf.ehcache.hibernate',
+           'grails.app.filters'
 }
 // Uncomment and edit the following lines to start using Grails encoding & escaping improvements
 

@@ -14,18 +14,18 @@ class SecurityFilters {
             }
         }*/
 
-        restAuth(uri: '/merchants/*') {
+        restAuth(uri: '/merchants*') {
             before = {
                 //extract basic auth information so that it can be used for authentication in secure filter
                 if (!session.user && !actionName.equals('login')) {
-                    redirect(action: 'login')
-                    return false
+                    //redirect(action: 'login')
+                    //return false
                 }
             }
         }
 
         //secure(controller:"product", action:"edit") {
-        secure(uri: '/merchants/*') {
+        secure(uri: '/merchants*') {
             before = {
                 accessControl {
                     true
