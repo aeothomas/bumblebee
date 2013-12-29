@@ -28,7 +28,7 @@ class SecurityFilters {
             }
         }*/
 
-        basicAuth(uri: '/**') {
+        basicAuth(uri: '/**', controllerExclude: 'error') {
             before = {
                 log.debug(request)
                 if (!SecurityUtils.validateBasicAuth(request, response, log, grailsApplication)) {

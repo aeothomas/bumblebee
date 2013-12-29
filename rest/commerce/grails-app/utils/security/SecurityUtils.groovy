@@ -25,7 +25,7 @@ class SecurityUtils {
         try {
             def authString = request.getHeader(HttpHeaders.AUTHORIZATION)
             if (!authString) {
-                response.status = HttpStatus.UNAUTHORIZED
+                response.status = HttpStatus.UNAUTHORIZED.value()
                 response.addHeader(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"Secure Area\"")
                 log.warn("unauthorised access attempt")
                 return false
@@ -36,8 +36,8 @@ class SecurityUtils {
             def login = grailsApplication.config.admin.security.login
             def password = grailsApplication.config.admin.security.password
 
-
-            log.debug(ACCEPTED_VERSION_TOKEN + ": " + request.getHeader(ACCEPTED_VERSION_TOKEN))
+            def logVars = ["authString":authString, "credentials":credentials, "login":login, "password":password]
+            log.debug("logVars: " + logVars)
 
             if (credentials.length > 0 && login?.equals(credentials[0]) && password?.equals(credentials[1])) {
                 log.warn("authorised access attempt")
@@ -46,12 +46,12 @@ class SecurityUtils {
                 return true
             } else {
                 log.warn("unauthorised access attempt due to bad credentials")
-                response.status = HttpStatus.FORBIDDEN
+                response.status = HttpStatus.FORBIDDEN.value()
                 return false
             }
         } catch (Exception e) {
             log.warn("exception thrown when trying to authorise user access", e)
-            response.status = HttpStatus.FORBIDDEN
+            response.status = HttpStatus.FORBIDDEN.value()
             return false
         }
     }
