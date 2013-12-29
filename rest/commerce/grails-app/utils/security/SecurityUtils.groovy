@@ -1,5 +1,6 @@
 package security
 
+import org.apache.http.HttpHeaders
 import org.springframework.http.HttpStatus
 
 /**
@@ -23,6 +24,7 @@ class SecurityUtils {
             if (!authString) {
                 response.status = HttpStatus.UNAUTHORIZED
                 response.addHeader(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"Secure Area\"")
+                log.warn("User unknown")
                 return false
             }
             def encodedPair = authString - 'Basic '
