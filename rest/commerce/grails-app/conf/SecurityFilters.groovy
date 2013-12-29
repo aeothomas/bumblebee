@@ -28,7 +28,7 @@ class SecurityFilters {
             }
         }*/
 
-        basicAuth(uri: '/merchants*') {
+        basicAuth(uri: '/**') {
             before = {
                 log.debug(request)
                 if (!SecurityUtils.validateBasicAuth(request, response, log, grailsApplication)) {
@@ -38,7 +38,7 @@ class SecurityFilters {
             }
         }
 
-        secure(uri: '/merchants*') {
+        secure(uri: '/**') {
             before = {
                 accessControl {
                     true
