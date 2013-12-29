@@ -24,7 +24,7 @@ class SecurityUtils {
             if (!authString) {
                 response.status = HttpStatus.UNAUTHORIZED
                 response.addHeader(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"Secure Area\"")
-                log.warn("User unknown")
+                log.warn("unauthorised access attempt")
                 return false
             }
             def encodedPair = authString - 'Basic '
@@ -34,14 +34,15 @@ class SecurityUtils {
             def password = grailsApplication.config.admin.security.password
 
             if (login.equals(credentials[0]) && password.equals(credentials[1])) {
+                log.warn("authorised access attempt")
                 return true
             } else {
-                log.warn("User unknown")
+                log.warn("unauthorised access attempt due to bad credentials")
                 response.status = HttpStatus.FORBIDDEN
                 return false
             }
         } catch (Exception e) {
-            log.warn("User unknown", e)
+            log.warn("exception thrown when trying to authorise user access", e)
             response.status = HttpStatus.FORBIDDEN
             return false
         }

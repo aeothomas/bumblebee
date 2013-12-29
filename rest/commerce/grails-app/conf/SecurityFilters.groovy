@@ -17,6 +17,7 @@ class SecurityFilters {
             }
         }*/
 
+        /*
         restAuth(uri: '/merchants*') {
             before = {
                 //extract basic auth information so that it can be used for authentication in secure filter
@@ -25,10 +26,11 @@ class SecurityFilters {
                     //return false
                 }
             }
-        }
+        }*/
 
-        basicAuth(uri: '/merchants*') { //(controller: 'prospect', action: '*') {
+        basicAuth(uri: '/merchants*') {
             before = {
+                log.debug(request)
                 if (!SecurityUtils.validateBasicAuth(request, response, log, grailsApplication)) {
                     // TODO: delegate to JSON Marshaller to render response
                     return false
@@ -36,7 +38,6 @@ class SecurityFilters {
             }
         }
 
-        //secure(controller:"product", action:"edit") {
         secure(uri: '/merchants*') {
             before = {
                 accessControl {
