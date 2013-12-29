@@ -1,12 +1,15 @@
 package security
 
-import org.apache.http.HttpHeaders
+import org.codehaus.groovy.grails.web.servlet.HttpHeaders
 import org.springframework.http.HttpStatus
 
 /**
  * Created by @author: aeothomas on 27/12/2013.
  */
 class SecurityUtils {
+
+    private static final String SUBTRACT_BASIC_TOKEN = 'Basic '
+    public static final String ACCEPTED_VERSION_TOKEN = 'Accept-Version'
 
     /**
      * This method validates a request based on Basic Authentication and returns false if the login attempt
@@ -27,14 +30,19 @@ class SecurityUtils {
                 log.warn("unauthorised access attempt")
                 return false
             }
-            def encodedPair = authString - 'Basic '
+            def encodedPair = authString - SUBTRACT_BASIC_TOKEN
             def decodedPair = new String(new sun.misc.BASE64Decoder().decodeBuffer(encodedPair));
             def credentials = decodedPair.split(':')
             def login = grailsApplication.config.admin.security.login
             def password = grailsApplication.config.admin.security.password
 
+
+            log.warn("dwdwdwdwdwdwd: request.getHeader(ACCEPTED_VERSION_TOKEN")
+
             if (login.equals(credentials[0]) && password.equals(credentials[1])) {
                 log.warn("authorised access attempt")
+                //TODO: extract required version and add it to the request object
+                log.warn("dwdwdwdwdwdwd: request.getHeader(ACCEPTED_VERSION_TOKEN")
                 return true
             } else {
                 log.warn("unauthorised access attempt due to bad credentials")
