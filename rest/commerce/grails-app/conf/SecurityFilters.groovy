@@ -1,6 +1,8 @@
 /**
  * Created by @author: aeothomas on 26/12/2013.
  */
+
+import commons.RestApiUtils
 import security.SecurityUtils
 
 class SecurityFilters {
@@ -31,9 +33,11 @@ class SecurityFilters {
         basicAuth(uri: '/**', controllerExclude: 'error') {
             before = {
                 log.debug(request)
-                if (!SecurityUtils.validateBasicAuth(request, response, log, grailsApplication)) {
+                if (SecurityUtils.isValidBasicAuth(request, response, log, grailsApplication)) {
                     // TODO: delegate to JSON Marshaller to render response
-                    return false
+
+                    RestApiUtils.setHeaders(request, response, log, grailsApplication)
+                    return true
                 }
             }
         }
@@ -41,8 +45,15 @@ class SecurityFilters {
         secure(uri: '/**') {
             before = {
                 accessControl {
-                    true
+                    return true
                 }
+            }
+        }
+
+        addHResponseHeaders(uri: '/**') {
+
+            after = {
+                RestApiUtils.setHeaders(request, response, log, grailsApplication)
             }
         }
     }

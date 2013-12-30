@@ -1,5 +1,6 @@
 package security
 
+import commons.RestApiUtils
 import org.codehaus.groovy.grails.web.servlet.HttpHeaders
 import org.springframework.http.HttpStatus
 
@@ -9,7 +10,6 @@ import org.springframework.http.HttpStatus
 class SecurityUtils {
 
     private static final String SUBTRACT_BASIC_TOKEN = 'Basic '
-    public static final String ACCEPTED_VERSION_TOKEN = 'Accept-Version'
 
     /**
      * This method validates a request based on Basic Authentication and returns false if the login attempt
@@ -20,7 +20,7 @@ class SecurityUtils {
      *
      * When the "Authorization" header is present, but there is a bad login / password then return 403.
      */
-    static validateBasicAuth(def request, def response, def log, def grailsApplication) {
+    static isValidBasicAuth(def request, def response, def log, def grailsApplication) {
 
         try {
             def authString = request.getHeader(HttpHeaders.AUTHORIZATION)
@@ -33,16 +33,18 @@ class SecurityUtils {
             def encodedPair = authString - SUBTRACT_BASIC_TOKEN
             def decodedPair = new String(new sun.misc.BASE64Decoder().decodeBuffer(encodedPair));
             def credentials = decodedPair.split(':')
+
+            // TODO think about how to manage access tokens across multiple servers
+            // TODO think about session management of access periods - when does a client need to revalidate?
+            // TODO when new Merchant is registered a new APIkey credential is stored
             def login = grailsApplication.config.admin.security.login
             def password = grailsApplication.config.admin.security.password
 
             def logVars = ["authString":authString, "credentials":credentials, "login":login, "password":password]
             log.debug("logVars: " + logVars)
 
-            if (credentials.length > 0 && login?.equals(credentials[0]) && password?.equals(credentials[1])) {
+            if (credentials?.length > 0 && login?.equals(credentials[0]) && password?.equals(credentials[1])) {
                 log.warn("authorised access attempt")
-                //TODO: extract required version and add it to the request object
-                log.debug(ACCEPTED_VERSION_TOKEN + ": " + request.getHeader(ACCEPTED_VERSION_TOKEN))
                 return true
             } else {
                 log.warn("unauthorised access attempt due to bad credentials")
