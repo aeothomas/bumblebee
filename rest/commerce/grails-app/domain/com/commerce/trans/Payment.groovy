@@ -2,8 +2,7 @@ package com.commerce.trans
 
 class Payment {
 
-    String paymentNum
-
+    String paymentNumber
 
     double amount
 

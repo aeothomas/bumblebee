@@ -161,39 +161,44 @@ class TestDataBootStrap {
         /**
          * Employee
          */
-        Employee employee = new Employee(firstName: "john")
+        Employee employee = new Employee(firstName: "john",code: "EM_001",lastName: "Doe",
+                       phoneNumber: "12345",address:storeAddress, store: portlandBranch).save()
 
         /**
          * Transactions
          */
 
-        OperationType purchaseOperation = new OperationType( name:"purchase", type:1)
-        OperationType refundOperation = new OperationType(name:"refund", type:2)
+        OperationType purchaseOperation = new OperationType( name:"purchase", type:1).save()
+        OperationType refundOperation = new OperationType(name:"refund", type:2).save()
 
-        PaymentType cardPaymentType = new PaymentType(name: "card payment", type:1)
-        PaymentType cashPaymentType = new PaymentType(name:"cash payment", type:2)
-        PaymentType hyperPaymentType = new PaymentType(name: "hype payment", type:3)
+        PaymentType cardPaymentType = new PaymentType(name: "card payment", type:1).save()
+        PaymentType cashPaymentType = new PaymentType(name:"cash payment", type:2).save()
+
+    //    PaymentType hyperPaymentType = new PaymentType(name: "hype payment", type:3).save()
 
 
 
 
-        Payment multiPayment = new Payment(amount: 0 , paymentType: hyperPaymentType)
+        Payment payment1 = new Payment( paymentNumber: "1",  amount: 4 , paymentType: cardPaymentType)
+        Payment payment2 = new Payment( paymentNumber: "2",  amount: 1.98 , paymentType: cashPaymentType)
 
         LineItem latteLineItem = new LineItem(inventoryItem: latteInventory, quantity: 2, total: 5.98)
 
         Transaction transaction = new Transaction(transNum: "trans-1", orderNum: "order-1", date: new Date(),
                                      store: portlandBranch,cashier: employee,
-                                     register: register, amount: 5.98, tax: 1,  payment: multiPayment, operationType: purchaseOperation
+                                     register: register, amount: 5.98, tax: 1,   operationType: purchaseOperation
                                     )
-
+//
         transaction.addToLineItem(latteLineItem)
+        transaction.addToPayments(payment1)
+        transaction.addToPayments(payment2 )
 
 //        Payment cardPayment = new Payment(amount: 2, paymentType: cardPaymentType)
 //        Payment cashPayment = new Payment(amount: 3.98, paymentType: cashPaymentType)
 //
 
         transaction.save()
-
+//
         println "**************"
         println transaction.errors
 

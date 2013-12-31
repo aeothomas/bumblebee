@@ -52,16 +52,13 @@ class Transaction {
     double tax
 
     /**
-     * The payment details
-     */
-    Payment payment
-
-    /**
      * Indicate the type of transaction
      */
     OperationType operationType
 
-    static hasMany = [lineItem: LineItem, multiplePayments:Payment]
+    //TODO review the payments
+
+    static hasMany = [lineItem: LineItem, payments:Payment]
 
     static constraints = {
 
