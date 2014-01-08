@@ -1,29 +1,29 @@
 package mock
 
-import com.commerce.business.*
-import com.commerce.emp.Employee
-import com.commerce.global.Country
-import com.commerce.inventory.InventoryItem
-import com.commerce.inventory.RawGoodItem
-import com.commerce.inventory.StoreInventory
-import com.commerce.products.AddOn
-import com.commerce.products.AddOnOption
-import com.commerce.products.AddOnType
-import com.commerce.products.Modifier
-import com.commerce.products.ModifierOption
-import com.commerce.products.Product
-import com.commerce.products.ProductCategory
-import com.commerce.products.ProductPricingType
-import com.commerce.products.ProductUnitType
-import com.commerce.reg.Register
-import com.commerce.store.Store
-import com.commerce.commons.Address
-import com.commerce.suppliers.Supplier
-import com.commerce.trans.LineItem
-import com.commerce.trans.OperationType
-import com.commerce.trans.Payment
-import com.commerce.trans.PaymentType
-import com.commerce.trans.Transaction
+import commerce.business.*
+import commerce.emp.Employee
+import commerce.global.Country
+import commerce.inventory.InventoryItem
+import commerce.inventory.RawGoodItem
+import commerce.inventory.StoreInventory
+import commerce.products.AddOn
+import commerce.products.AddOnOption
+import commerce.products.AddOnType
+import commerce.products.Modifier
+import commerce.products.ModifierOption
+import commerce.products.Product
+import commerce.products.ProductCategory
+import commerce.products.ProductPricingType
+import commerce.products.ProductUnitType
+import commerce.reg.Register
+import commerce.store.Store
+import commerce.commons.Address
+import commerce.suppliers.Supplier
+import commerce.trans.LineItem
+import commerce.trans.OperationType
+import commerce.trans.Payment
+import commerce.trans.PaymentType
+import commerce.trans.Transaction
 
 /**
  * Created with IntelliJ IDEA.
