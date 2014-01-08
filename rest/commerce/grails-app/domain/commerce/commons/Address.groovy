@@ -5,6 +5,7 @@ import commerce.global.Country
 /**
  * The address
  */
+
 class Address {
 
 	String houseNumber

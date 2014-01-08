@@ -35,27 +35,28 @@ class SecurityFilters {
                 log.debug(request)
                 if (SecurityUtils.isValidBasicAuth(request, response, log, grailsApplication)) {
                     // TODO: delegate to JSON Marshaller to render response
-
+                    //
                     RestApiUtils.setHeaders(request, response, log, grailsApplication)
-                    return true
+                    return false
                 }
             }
         }
-
-        secure(uri: '/**') {
+       /*
+        secure(uri: '/**', controllerExclude: 'error') {
             before = {
                 accessControl {
                     return true
                 }
             }
-        }
+        } */
 
+        /*
         addHResponseHeaders(uri: '/**') {
 
             after = {
                 RestApiUtils.setHeaders(request, response, log, grailsApplication)
             }
-        }
+        }*/
     }
 
 }
