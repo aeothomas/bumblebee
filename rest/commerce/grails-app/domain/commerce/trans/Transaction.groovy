@@ -29,17 +29,6 @@ class Transaction {
     Date date
 
     /**
-     * The unique code of store
-     */
-    String storeCode
-
-    /**
-     * The unique code of register code
-     *  TODO review if we need to remove it
-     */
-    String registerCode
-
-    /**
      * Cashier
      */
     Employee cashier
@@ -65,16 +54,13 @@ class Transaction {
     double tax
 
     /**
-     * The payment details
-     */
-    Payment payment
-
-    /**
      * Indicate the type of transaction
      */
     OperationType operationType
 
-    static hasMany = [lineItem: LineItem, muliplePayments:Payment]
+    //TODO review the payments
+
+    static hasMany = [lineItem: LineItem, payments:Payment]
 
     static constraints = {
 

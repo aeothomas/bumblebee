@@ -5,8 +5,7 @@ import grails.rest.Resource
 @Resource()
 class Payment {
 
-    String paymentNum
-
+    String paymentNumber
 
     double amount
 
