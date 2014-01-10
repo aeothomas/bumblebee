@@ -13,15 +13,18 @@ class Transaction {
 
     /**
      *  The unique transaction number
-     * TODO review String vs Long
      */
     String transNum
 
     /**
      * The order number
-     * TODO review String vs Long
      */
     String orderNum
+
+    /**
+     * The receipt number
+     */
+    String receiptNum
 
     /**
      * The of transaction
@@ -58,9 +61,12 @@ class Transaction {
      */
     OperationType operationType
 
-    //TODO review the payments
+    /**
+     * Payments
+     */
+    Payment payment
 
-    static hasMany = [lineItem: LineItem, payments:Payment]
+    static hasMany = [lineItem: LineItem]
 
     static constraints = {
 

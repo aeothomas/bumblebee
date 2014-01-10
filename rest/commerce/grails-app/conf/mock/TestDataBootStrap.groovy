@@ -184,14 +184,13 @@ class TestDataBootStrap {
 
         LineItem latteLineItem = new LineItem(inventoryItem: latteInventory, quantity: 2, total: 5.98)
 
-        Transaction transaction = new Transaction(transNum: "trans-1", orderNum: "order-1", date: new Date(),
+        Transaction transaction = new Transaction(receiptNum: "receipt-1", transNum: "trans-1", orderNum: "order-1", date: new Date(),
                                      store: portlandBranch,cashier: employee,
-                                     register: register, amount: 5.98, tax: 1,   operationType: purchaseOperation
+                                     register: register, amount: 5.98, tax: 1,   operationType: purchaseOperation,
+                                     payment:payment1
                                     )
 //
         transaction.addToLineItem(latteLineItem)
-        transaction.addToPayments(payment1)
-        transaction.addToPayments(payment2 )
 
 //        Payment cardPayment = new Payment(amount: 2, paymentType: cardPaymentType)
 //        Payment cashPayment = new Payment(amount: 3.98, paymentType: cashPaymentType)
