@@ -3,7 +3,9 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="Grails" name="Grails" removed="false" />
+        <fileset id="Grails" name="Grails" removed="false">
+          <file>file://$MODULE_DIR$/../web-app/WEB-INF/applicationContext.xml</file>
+        </fileset>
       </configuration>
     </facet>
     <facet type="web" name="GrailsWeb">
@@ -17,8 +19,95 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="Gorm" />
+          <unit-entry name="sessionFactory" />
+        </datasource-map>
         <naming-strategy-map />
+      </configuration>
+    </facet>
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../src/main/webapp" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../src/java" />
+          <root url="file://$MODULE_DIR$/../grails-app/utils" />
+          <root url="file://$MODULE_DIR$/../src/groovy" />
+          <root url="file://$MODULE_DIR$/../grails-app/i18n" />
+          <root url="file://$MODULE_DIR$/../grails-app/realms" />
+          <root url="file://$MODULE_DIR$/../grails-app/controllers" />
+          <root url="file://$MODULE_DIR$/../grails-app/domain" />
+          <root url="file://$MODULE_DIR$/../grails-app/services" />
+          <root url="file://$MODULE_DIR$/../grails-app/taglib" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../target/2.3.4/resources/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../target/2.3.4/resources" relative="/WEB-INF" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../src/java" />
+          <root url="file://$MODULE_DIR$/../grails-app/utils" />
+          <root url="file://$MODULE_DIR$/../src/groovy" />
+          <root url="file://$MODULE_DIR$/../grails-app/i18n" />
+          <root url="file://$MODULE_DIR$/../grails-app/realms" />
+          <root url="file://$MODULE_DIR$/../grails-app/controllers" />
+          <root url="file://$MODULE_DIR$/../grails-app/domain" />
+          <root url="file://$MODULE_DIR$/../grails-app/services" />
+          <root url="file://$MODULE_DIR$/../grails-app/taglib" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web3">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../target/2.3.2/resources/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../target/2.3.2/resources" relative="/WEB-INF" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../src/java" />
+          <root url="file://$MODULE_DIR$/../grails-app/utils" />
+          <root url="file://$MODULE_DIR$/../src/groovy" />
+          <root url="file://$MODULE_DIR$/../grails-app/i18n" />
+          <root url="file://$MODULE_DIR$/../grails-app/realms" />
+          <root url="file://$MODULE_DIR$/../grails-app/controllers" />
+          <root url="file://$MODULE_DIR$/../grails-app/domain" />
+          <root url="file://$MODULE_DIR$/../grails-app/services" />
+          <root url="file://$MODULE_DIR$/../grails-app/taglib" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web4">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../target/2.3.3/resources/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../target/2.3.3/resources" relative="/WEB-INF" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../src/java" />
+          <root url="file://$MODULE_DIR$/../grails-app/utils" />
+          <root url="file://$MODULE_DIR$/../src/groovy" />
+          <root url="file://$MODULE_DIR$/../grails-app/i18n" />
+          <root url="file://$MODULE_DIR$/../grails-app/realms" />
+          <root url="file://$MODULE_DIR$/../grails-app/controllers" />
+          <root url="file://$MODULE_DIR$/../grails-app/domain" />
+          <root url="file://$MODULE_DIR$/../grails-app/services" />
+          <root url="file://$MODULE_DIR$/../grails-app/taglib" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -77,7 +166,6 @@
           <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jdt/core/compiler/ecj/3.7.2/ecj-3.7.2.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-jasper/7.0.47/tomcat-embed-jasper-7.0.47.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/tomcat-catalina-ant/7.0.47/tomcat-catalina-ant-7.0.47.jar!/" />
-          <root url="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.0/scribe-1.3.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

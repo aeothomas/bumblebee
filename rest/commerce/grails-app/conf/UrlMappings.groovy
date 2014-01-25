@@ -61,6 +61,13 @@ class UrlMappings {
 			"/transactions"(version:'1.0', resources:"transaction", excludes:['create', 'edit'], namespace:'v1')
 		}
 
+        // global routes - TODO: add in the configuration part of this route
+        //"/conf"(version:'1.0', resources:'configuration', excludes:['create', 'edit'], namespace:'v1')
+        //"/conf"(version:'1.0', resources:'configuration', excludes:['create', 'edit'], namespace:'v1') {
+
+            "/countries"(version:'1.0', resources:'country', excludes:['create', 'edit'], namespace:'v1')
+        //}
+
 		"/"(view:"/index") // TODO: remove default grails page for real app
 
 		// handle http code responses
@@ -82,7 +89,8 @@ class UrlMappings {
 				// apply constraints here
 			}
 		} */
-		
+
+
 		// TODO: version 2.0 for the future....
 	}
 }

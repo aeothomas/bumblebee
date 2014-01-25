@@ -1,3 +1,5 @@
+package commerce.filters
+
 /**
  * Created by @author: aeothomas on 26/12/2013.
  */
@@ -30,6 +32,7 @@ class SecurityFilters {
             }
         }*/
 
+        /*
         basicAuth(uri: '/**', controllerExclude: 'error') {
             before = {
                 log.debug(request)
@@ -40,9 +43,10 @@ class SecurityFilters {
                     return true
                 }
             }
-        }
+        }*/
 
-        secure(uri: '/**') {
+        // restrict all access
+        secure(uri: '/merchant') {
             before = {
                 accessControl {
                     return true
@@ -50,12 +54,52 @@ class SecurityFilters {
             }
         }
 
+        // TODO: restrict role-based resources/ controllers
+        /*
+        secure(controller: 'xxxx') {
+            before = {
+                accessControl {
+                    return role("product-admin") || permission("book:delete")
+                }
+            }
+        }
+        */
+
+        // TODO: restrict role-based and permission resources/ controllers
+        /*
+        secure(controller: 'xxxxx') {
+            before = {
+                accessControl {
+                    return role("product-admin") || permission("book:delete")
+                }
+            }
+        }
+        */
+
+
+        // TODO: restrict admin-only resources/ controllers
+        /*
+        secure(controller: 'xxxxx') {
+            before = {
+                accessControl {
+                    return role("product-admin") || permission("book:delete")
+                }
+            }
+        }
+        */
+
+
+
+
+        /*
         addHResponseHeaders(uri: '/**') {
 
             after = {
-                RestApiUtils.setHeaders(request, response, log, grailsApplication)
+                log.error("here after")
+                //RestApiUtils.setHeaders(request, response, log, grailsApplication)
             }
         }
+        */
     }
 
 }
