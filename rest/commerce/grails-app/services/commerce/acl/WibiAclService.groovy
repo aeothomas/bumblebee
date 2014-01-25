@@ -36,7 +36,7 @@ class WibiAclService {
     def init() {
 
         // TODO: add try catches
-        List<WibiRole> roles = [SupportRole]
+        List<WibiRole> roles = [SupportRole, AdminRole, StandardRole, MerchantRole, BackOfficeRole, StoreAdminRole, StoreEmployeeRole, CustomerRole]
         for (_role in roles) {
             Role role = createRole(_role.ROLE_NAME, _role.ROLE_DESC)
             grantStandardPermissionsToRole(_role.getPermissions(), role)

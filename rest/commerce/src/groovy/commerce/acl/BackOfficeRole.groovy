@@ -4,14 +4,11 @@ package commerce.acl
  */
 class BackOfficeRole extends WibiRole {
 
-    public static final String ROLE_NAME = "SUPPORT"
-    public static final String ROLE_DESC = "Support role is intended for system administrator for the support team"
+    public static final String ROLE_NAME = "BACKOFFICE"
+    public static final String ROLE_DESC = "Back-Office role is intended for the merchant's back office staff"
 
     private static final List<ApplicationPermissions> BACK_OFFICE_PERMS = [
             BackOfficePermissions.REPORTING_READ_ALL_PERM.permission(),
-            BackOfficePermissions.REPORTING_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.REPORTING_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.REPORTING_DELETE_ALL_PERM.permission(),
 
             BackOfficePermissions.INVENTORY_READ_ALL_PERM.permission(),
             BackOfficePermissions.INVENTORY_CREATE_ALL_PERM.permission(),
@@ -27,11 +24,6 @@ class BackOfficeRole extends WibiRole {
             BackOfficePermissions.CUSTOMER_CREATE_ALL_PERM.permission(),
             BackOfficePermissions.CUSTOMER_UPDATE_ALL_PERM.permission(),
             BackOfficePermissions.CUSTOMER_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.ACCOUNT_READ_ALL_PERM.permission(),
-            BackOfficePermissions.ACCOUNT_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.ACCOUNT_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.ACCOUNT_DELETE_ALL_PERM.permission(),
 
             BackOfficePermissions.USERS_READ_ALL_PERM.permission(),
             BackOfficePermissions.USERS_CREATE_ALL_PERM.permission(),
@@ -50,24 +42,6 @@ class BackOfficeRole extends WibiRole {
     ]
 
     private static final List<ApplicationPermissions> REGISTER_PERMS = [
-
-            RegisterPermissions.SETTINGS_READ_ALL_PERM.permission(),
-            RegisterPermissions.SETTINGS_CREATE_ALL_PERM.permission(),
-            RegisterPermissions.SETTINGS_UPDATE_ALL_PERM.permission(),
-
-            RegisterPermissions.CUSTOMER_READ_ALL_PERM.permission(),
-            RegisterPermissions.CUSTOMER_CREATE_ALL_PERM.permission(),
-            RegisterPermissions.CUSTOMER_UPDATE_ALL_PERM.permission(),
-
-            RegisterPermissions.EMPLOYEE_READ_ALL_PERM.permission(),
-
-            RegisterPermissions.REGISTERS_OPEN_ALL_PERM.permission(),
-            RegisterPermissions.REGISTERS_CLOSE_ALL_PERM.permission(),
-            RegisterPermissions.REGISTERS_CHECKIN_ALL_PERM.permission(),
-            RegisterPermissions.REGISTERS_CHECKOUT_ALL_PERM.permission(),
-
-            RegisterPermissions.REPORTS_READ_ALL_PERM.permission(),
-            RegisterPermissions.REPORTS_PRINT_ALL_PERM.permission()
     ]
 
     @Override

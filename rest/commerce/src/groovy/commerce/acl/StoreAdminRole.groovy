@@ -4,49 +4,10 @@ package commerce.acl
  */
 class StoreAdminRole extends WibiRole {
 
-    public static final String ROLE_NAME = "SUPPORT"
-    public static final String ROLE_DESC = "Support role is intended for system administrator for the support team"
+    public static final String ROLE_NAME = "STOREADMIN"
+    public static final String ROLE_DESC = "Store Admin role is intended for the merchant's store administrators"
 
     private static final List<ApplicationPermissions> BACK_OFFICE_PERMS = [
-            BackOfficePermissions.REPORTING_READ_ALL_PERM.permission(),
-            BackOfficePermissions.REPORTING_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.REPORTING_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.REPORTING_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.INVENTORY_READ_ALL_PERM.permission(),
-            BackOfficePermissions.INVENTORY_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.INVENTORY_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.INVENTORY_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.TRANSACTION_READ_ALL_PERM.permission(),
-            BackOfficePermissions.TRANSACTION_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.TRANSACTION_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.TRANSACTION_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.CUSTOMER_READ_ALL_PERM.permission(),
-            BackOfficePermissions.CUSTOMER_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.CUSTOMER_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.CUSTOMER_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.ACCOUNT_READ_ALL_PERM.permission(),
-            BackOfficePermissions.ACCOUNT_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.ACCOUNT_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.ACCOUNT_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.USERS_READ_ALL_PERM.permission(),
-            BackOfficePermissions.USERS_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.USERS_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.USERS_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.REGISTERS_READ_ALL_PERM.permission(),
-            BackOfficePermissions.REGISTERS_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.REGISTERS_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.REGISTERS_DELETE_ALL_PERM.permission(),
-
-            BackOfficePermissions.PROMOTION_READ_ALL_PERM.permission(),
-            BackOfficePermissions.PROMOTION_CREATE_ALL_PERM.permission(),
-            BackOfficePermissions.PROMOTION_UPDATE_ALL_PERM.permission(),
-            BackOfficePermissions.PROMOTION_DELETE_ALL_PERM.permission()
     ]
 
     private static final List<ApplicationPermissions> REGISTER_PERMS = [

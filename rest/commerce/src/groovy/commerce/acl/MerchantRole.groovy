@@ -4,8 +4,8 @@ package commerce.acl
  */
 class MerchantRole extends WibiRole {
 
-    public static final String ROLE_NAME = "SUPPORT"
-    public static final String ROLE_DESC = "Support role is intended for system administrator for the support team"
+    public static final String ROLE_NAME = "MERCHANT"
+    public static final String ROLE_DESC = "Merchant role is intended for the merchant owner"
 
     private static final List<ApplicationPermissions> BACK_OFFICE_PERMS = [
             BackOfficePermissions.REPORTING_READ_ALL_PERM.permission(),
