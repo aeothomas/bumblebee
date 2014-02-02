@@ -2,12 +2,14 @@ package commerce.emp
 
 import commerce.commons.Address
 import commerce.store.Store
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  * Employ Object
  */
 @Resource()
+@MultiTenant
 class Employee {
 
     /**

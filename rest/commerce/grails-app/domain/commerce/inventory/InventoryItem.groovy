@@ -2,12 +2,14 @@ package commerce.inventory
 
 import commerce.products.Product
 import commerce.suppliers.Supplier
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  * The global inventory item which has a unique sku id
  */
 @Resource()
+@MultiTenant
 class InventoryItem{
 	
 	/**

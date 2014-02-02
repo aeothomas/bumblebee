@@ -1,8 +1,10 @@
 package commerce.trans
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 @Resource()
+@MultiTenant
 class Payment {
 
     String paymentNumber

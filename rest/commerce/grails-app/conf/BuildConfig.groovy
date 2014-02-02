@@ -70,5 +70,6 @@ grails.project.dependency.resolution = {
             excludes "servlet-api"
         }
         compile ':cookie:0.51'
+        compile ":multi-tenant-single-db:0.8.3"
     }
 }

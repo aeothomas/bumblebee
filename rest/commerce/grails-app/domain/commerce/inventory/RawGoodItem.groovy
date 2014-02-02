@@ -2,6 +2,7 @@ package commerce.inventory
 
 import commerce.products.Product
 import commerce.suppliers.Supplier
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
@@ -13,6 +14,7 @@ import grails.rest.Resource
  *
  */
 @Resource()
+@MultiTenant
 class RawGoodItem {
 
 	/**

@@ -4,12 +4,14 @@ import commerce.commons.Address
 import commerce.inventory.InventoryItem
 import commerce.inventory.RawGoodItem
 import commerce.inventory.StoreInventory
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  * The Supplier domain
  */
 @Resource()
+@MultiTenant
 class Supplier {
 	
 	/**

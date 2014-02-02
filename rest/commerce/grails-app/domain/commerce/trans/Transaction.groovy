@@ -3,12 +3,14 @@ package commerce.trans
 import commerce.emp.Employee
 import commerce.reg.Register
 import commerce.store.Store
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  *
  */
 @Resource()
+@MultiTenant
 class Transaction {
 
     /**

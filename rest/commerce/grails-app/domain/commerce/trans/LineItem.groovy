@@ -1,12 +1,14 @@
 package commerce.trans
 
 import commerce.inventory.InventoryItem
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  * The line item
  */
 @Resource()
+@MultiTenant
 class LineItem {
 
 

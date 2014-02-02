@@ -1,10 +1,12 @@
 package commerce.commons
 
 import commerce.global.Country
+import grails.plugin.multitenant.core.annotation.MultiTenant
 
 /**
  * The address
  */
+@MultiTenant
 class Address {
 
 	String houseNumber

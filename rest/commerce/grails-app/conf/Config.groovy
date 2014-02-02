@@ -118,3 +118,11 @@ grails {
     }
 }
 remove this line */
+
+/**
+ * MultiTenant Configuration
+ */
+multiTenant {
+//    perTenantBeans = [ "demoService" ]
+    tenantClass = commerce.Merchant
+}
