@@ -6,7 +6,6 @@ import grails.plugin.multitenant.core.annotation.MultiTenant
 /**
  * The address
  */
-@MultiTenant
 class Address {
 
 	String houseNumber

@@ -10,7 +10,7 @@ import grails.rest.Resource
  */
 @Resource()
 @MultiTenant
-class Employee {
+class Employee extends grails.plugin.nimble.core.ProfileBase  {
 
     /**
      * The unique number of the employee
@@ -49,5 +49,10 @@ class Employee {
     static embedded = ['address']
 
     static constraints = {
+        code unique:true, blank:false//Code should be validated on the application level
+        store nullable:true,blank:true
+        phoneNumber nullable:true,blank:true
+        address nullable:true,blank:true
+
     }
 }

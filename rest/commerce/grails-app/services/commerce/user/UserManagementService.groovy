@@ -3,7 +3,7 @@ package commerce.user
 import grails.transaction.Transactional
 
 @Transactional
-class UserService {
+class UserManagementService {
 
 
     //def passwordSalt = new SecureRandomNumberGenerator().nextBytes().getBytes()

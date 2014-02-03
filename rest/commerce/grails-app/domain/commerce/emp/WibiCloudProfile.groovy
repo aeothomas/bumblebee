@@ -1,7 +1,10 @@
 
 package commerce.emp
 
-class WibiCloudProfile extends grails.plugin.nimble.core.ProfileBase {
+import grails.plugin.multitenant.core.annotation.MultiTenant
+
+
+class WibiCloudProfile {
 
 	// Extend ProfileBase with your custom values here
 
