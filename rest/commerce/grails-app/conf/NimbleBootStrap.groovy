@@ -15,10 +15,14 @@
  *  limitations under the License.
  */
 
+
+import grails.plugin.multitenant.core.CurrentTenant
 import grails.plugin.nimble.InstanceGenerator
 import grails.plugin.nimble.core.AdminsService
 import grails.plugin.nimble.core.Role
 import grails.plugin.nimble.core.UserBase
+import org.springframework.context.ApplicationContext
+import org.springframework.web.context.support.WebApplicationContextUtils
 
 /*
  * Allows applications using Nimble to undertake process at BootStrap that are related to Nimbe provided objects
@@ -42,8 +46,17 @@ class NimbleBootStrap {
 
 		// Execute any custom Nimble related BootStrap for your application below
 
+        // Define current Tenant
+        CurrentTenant currentTenant
+        ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        currentTenant = (CurrentTenant) ctx.getBean("currentTenant");
+
 		if(!UserBase.findByUsername("user")) {
 			// Create example User account
+
+            // Set current tenant
+            currentTenant.set(2)
+
 			def user = InstanceGenerator.user(grailsApplication)
 			user.username = "user"
 			user.pass = 'useR123!'
@@ -51,6 +64,9 @@ class NimbleBootStrap {
 			user.enabled = true
 
 			def userProfile = InstanceGenerator.profile(grailsApplication)
+
+
+
 			userProfile.fullName = "Test User"
 			userProfile.owner = user
             userProfile.code = "employee002"
@@ -60,15 +76,21 @@ class NimbleBootStrap {
 
 			log.info("Creating default user account with username:user")
 
+            println("***************** Before Save")
 			def savedUser = userService.createUser(user)
+            println("***************** After Save")
+            println("****ERROR?"+savedUser.errors)
 			if (savedUser.hasErrors()) {
 				savedUser.errors.each { log.error(it) }
+                currentTenant.set(null)
 				throw new RuntimeException("Error creating example user")
 			}
+            currentTenant.set(null)
 		}
 
 		if(!UserBase.findByUsername("admin")) {
 			// Create example Administrative account
+            currentTenant.set(1)
 			def admins = Role.findByName(AdminsService.ADMIN_ROLE)
 			def admin = InstanceGenerator.user(grailsApplication)
 			admin.username = "admin"
@@ -80,8 +102,8 @@ class NimbleBootStrap {
 			adminProfile.fullName = "Administrator"
 			adminProfile.owner = admin
             adminProfile.code = "employee001"
-            userProfile.firstName = "Admin"
-            userProfile.lastName = "User"
+            adminProfile.firstName = "Admin"
+            adminProfile.lastName = "User"
 			admin.profile = adminProfile
 
 			log.info("Creating default admin account with username:admin")
@@ -89,10 +111,12 @@ class NimbleBootStrap {
 			def savedAdmin = userService.createUser(admin)
 			if (savedAdmin.hasErrors()) {
 				savedAdmin.errors.each { log.error(it) }
+                currentTenant.set(null)
 				throw new RuntimeException("Error creating administrator")
 			}
 
 			adminsService.add(admin)
+            currentTenant.set(null)
 		}
 	}
 
