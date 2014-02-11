@@ -11,6 +11,7 @@ class Department {
 
     long code
 
+
     static constraints = {
         code unique:true, blank:false
         name unique:'tenantId'
