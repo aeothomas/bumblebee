@@ -11,7 +11,7 @@ class ProductCategory {
 	String name
 	
     static constraints = {
-		
+		name unique: 'tenantId'
     }
 	
 	

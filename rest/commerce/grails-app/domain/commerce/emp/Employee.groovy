@@ -53,6 +53,6 @@ class Employee extends grails.plugin.nimble.core.ProfileBase  {
         store nullable:true,blank:true
         phoneNumber nullable:true,blank:true
         address nullable:true,blank:true
-
+        code unique:'tenantId'
     }
 }

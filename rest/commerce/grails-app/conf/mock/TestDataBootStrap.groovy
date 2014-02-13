@@ -1,5 +1,7 @@
 package mock
 
+import commerce.account.Merchant
+import commerce.account.Plan
 import commerce.business.*
 import commerce.emp.Employee
 import commerce.global.Country
@@ -24,6 +26,9 @@ import commerce.trans.OperationType
 import commerce.trans.Payment
 import commerce.trans.PaymentType
 import commerce.trans.Transaction
+import grails.plugin.multitenant.core.CurrentTenant
+import org.springframework.context.ApplicationContext
+import org.springframework.web.context.support.WebApplicationContextUtils
 
 /**
  * This bootstrap is to populate the sample data.
@@ -36,17 +41,46 @@ import commerce.trans.Transaction
 class TestDataBootStrap {
 
     def init = { servletContext ->
+
+        // Define current Tenant
+        CurrentTenant currentTenant
+        ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        currentTenant = (CurrentTenant) ctx.getBean("currentTenant")
+
         /**
-         * Department
+         * Configure a plan
+         */
+
+        Plan freePlan = new Plan(name:"free tier", code: 1, description:"Free Tier", price:0).save()
+
+        /**
+         * Register a merchant
+         */
+        Merchant powersquare = new Merchant(name:"PowerSquare", domain:"powersquare", tenantId:3, plan:freePlan).save()
+
+        /**
+         * Resolve a tenant
+         */
+        currentTenant.set(3)
+
+        /**
+         * Business
          */
         Department salesDep = new Department(name:"sales", code:1).save()
         Department opDep = new Department (name:"operation" ,code : 2).save()
 
         /**
-         * Commons
+         * Pre-define data
          */
+        //Country
         Country gb = new Country(name:"UK", code:"GPB").save()
         Country us  = new Country(name:"US" ,code:"US").save()
+
+        
+
+
+
+
 
         /**
          * Products

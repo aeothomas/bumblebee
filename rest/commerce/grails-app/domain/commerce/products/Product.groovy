@@ -62,7 +62,7 @@ class Product {
      * It will have a product unit type while the product pricing type is "sold by unit"
      * */
     static constraints = {
-        name unique: true, blank: false
+        name unique: 'tenantId', blank: false
         category blank: false
         pricingType blank: false
 

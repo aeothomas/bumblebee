@@ -1,8 +1,8 @@
-package commerce
+package commerce.account
 
 import commerce.commons.Address
+import commerce.account.Plan
 import grails.plugin.multitenant.core.Tenant
-import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.*
 
 /**
@@ -27,11 +27,22 @@ class Merchant implements Tenant{
      */
     String uuid
 
+    /**
+     * The subscription plan
+     */
+    Plan plan
+
+    /**
+     *
+     */
+    boolean isActive
+
     static embedded = ['address']
 
     static constraints = {
         tenantId unique:true, blank:false
         domain unique:true,blank:false
+        address nullable:true, blank:true
     }
 
     def beforeInsert() {

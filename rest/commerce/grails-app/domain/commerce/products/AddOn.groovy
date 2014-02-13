@@ -23,5 +23,6 @@ class AddOn {
     static hasMany  = [options: AddOnOption]
 
     static constraints = {
+        name unique:'tenantId'
     }
 }

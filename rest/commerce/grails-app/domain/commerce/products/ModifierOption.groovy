@@ -20,5 +20,6 @@ class ModifierOption {
     static belongsTo = [modifier:Modifier]
 
     static constraints = {
+        name unique:'tenantId'
     }
 }

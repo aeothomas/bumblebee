@@ -42,7 +42,7 @@ class RawGoodItem {
 
 	
     static constraints = {
-        name blank:false
+        name blank:false , unique: 'tenantId'
         cost nullable:true
         quantity nullable:true
 

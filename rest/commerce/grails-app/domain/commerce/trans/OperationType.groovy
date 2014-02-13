@@ -7,7 +7,6 @@ import grails.plugin.multitenant.core.annotation.MultiTenant
  *  1. purchase,
  *  2. refund
  */
-@MultiTenant
 class OperationType {
 
     /**
@@ -18,7 +17,7 @@ class OperationType {
     int type
 
     static constraints = {
-        name blank:false
+        name blank:false, unique: true
         type blank:false, unique: true
     }
 }

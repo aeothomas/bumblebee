@@ -10,7 +10,6 @@ import grails.plugin.multitenant.core.annotation.MultiTenant
  *      3. By Registe
  *
  */
-@MultiTenant
 class ProductPricingType {
 
 	/**

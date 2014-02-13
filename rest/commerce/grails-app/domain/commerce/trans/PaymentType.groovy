@@ -7,7 +7,6 @@ import grails.rest.Resource
  * The payment type
  */
 @Resource()
-@MultiTenant
 class PaymentType {
 
 

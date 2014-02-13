@@ -22,5 +22,6 @@ class Payment {
     static belongsTo = [transaction:Transaction]
 
     static constraints = {
+        paymentNumber unique: true
     }
 }

@@ -71,6 +71,8 @@ class Transaction {
     static hasMany = [lineItem: LineItem]
 
     static constraints = {
-
+        transNum unique: true, blank:false
+        orderNum unique: true, blank:false
+        receiptNum unique: true, blank:false
     }
 }

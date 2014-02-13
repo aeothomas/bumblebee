@@ -23,5 +23,6 @@ class Modifier {
     static hasMany = [modifierOption: ModifierOption]
 	
     static constraints = {
+        name unique:'tenantId'
     }
 }

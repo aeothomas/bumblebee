@@ -8,7 +8,6 @@ import grails.plugin.multitenant.core.annotation.MultiTenant
  * 1. It can be adding options group
  * 2. It can also be NO options group
  */
-@MultiTenant
 class AddOnType {
 
     String name

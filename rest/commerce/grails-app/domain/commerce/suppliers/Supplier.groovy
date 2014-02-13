@@ -38,6 +38,6 @@ class Supplier {
 	
     static constraints = {
        code unique: true, blank: false
-       name blank: false
+       name blank: false, unique:'tenantId'
     }
 }

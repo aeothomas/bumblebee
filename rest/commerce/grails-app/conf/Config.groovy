@@ -1,3 +1,5 @@
+import commerce.account.Merchant
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -124,5 +126,5 @@ remove this line */
  */
 multiTenant {
 //    perTenantBeans = [ "demoService" ]
-    tenantClass = commerce.Merchant
+    tenantClass = Merchant
 }
