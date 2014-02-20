@@ -1,5 +1,6 @@
 package commerce.inventory
 
+import commerce.products.Modifier
 import commerce.products.Product
 import commerce.suppliers.Supplier
 import grails.plugin.multitenant.core.annotation.MultiTenant
@@ -32,7 +33,9 @@ class InventoryItem{
 	 */
 	double price
 	
-	static hasMany = [globalSupplier: Supplier]
+	static hasMany = [globalSupplier: Supplier,
+            modifiers: Modifier
+    ]
 
 
 	/**
@@ -42,5 +45,7 @@ class InventoryItem{
 	
     static constraints = {
 		sku unique: 'tenantId', blank:false
+        price nullable:true
+
     }
 }

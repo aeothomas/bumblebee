@@ -34,7 +34,7 @@ class Invoice {
     static embedded = ['billingAddress']
 
 
-    static hasMany = [InvoiceItem : invoiceItem]
+    static hasMany = [invoiceItem : InvoiceItem]
 
 
     static constraints = {

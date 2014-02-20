@@ -5,7 +5,6 @@ import grails.plugin.multitenant.core.annotation.MultiTenant
 @MultiTenant
 class InvoiceItem {
 
-
     String name
 
     String description
@@ -13,7 +12,6 @@ class InvoiceItem {
     String unitPrice
 
     int quality = 0
-
 
     static constraints = {
     }

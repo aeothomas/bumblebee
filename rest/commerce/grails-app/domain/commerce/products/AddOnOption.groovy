@@ -15,6 +15,5 @@ class AddOnOption {
     static belongsTo = [addonGroup:AddOn]
 
     static constraints = {
-        name unique:'tenantId'
     }
 }

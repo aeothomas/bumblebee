@@ -43,7 +43,7 @@ class Product {
     Department department
 
     /**
-     * TODO Review required . Should it be StoreInventory or staying at the global level
+     * Cost of the product
      */
     double cost
 
@@ -53,9 +53,8 @@ class Product {
     static hasMany = [productUnitType: ProductUnitType,
             inventoryItem: InventoryItem,
             rawGoodItem: RawGoodItem,
-            modifiers: Modifier,
-            addon: AddOn,
-            excludeOptions: AddOn]
+//            modifiers: Modifier,
+            addon: AddOn]
 
     /**
      * Here, Product will have 0 or 1 product unit type. Enhance using a join table to save space
@@ -65,6 +64,7 @@ class Product {
         name unique: 'tenantId', blank: false
         category blank: false
         pricingType blank: false
+        cost nullable:true
 
     }
     static mapping = {
