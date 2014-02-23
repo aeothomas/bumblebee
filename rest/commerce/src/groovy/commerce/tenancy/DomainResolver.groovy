@@ -1,6 +1,6 @@
 package commerce.tenancy
 
-import commerce.Merchant
+import commerce.account.Merchant
 import grails.plugin.multitenant.core.resolve.TenantResolver
 import org.apache.commons.logging.LogFactory
 import sun.util.logging.resources.logging
@@ -25,7 +25,7 @@ class DomainResolver  implements TenantResolver {
 
         log.warn("Cannot resolve the request to any tenant reutrn null")
 
-        return null
+        return -1
     }
 
 }

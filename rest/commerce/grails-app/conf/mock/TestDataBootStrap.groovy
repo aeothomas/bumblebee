@@ -48,20 +48,15 @@ class TestDataBootStrap {
         currentTenant = (CurrentTenant) ctx.getBean("currentTenant")
 
         /**
-         * Configure a plan
-         */
-
-        Plan freePlan = new Plan(name:"free tier", code: 1, description:"Free Tier", price:0).save()
-
-        /**
          * Register a merchant
          */
-        Merchant powersquare = new Merchant(name:"PowerSquare", domain:"powersquare", tenantId:3, plan:freePlan).save()
+        Plan freePlan =Plan.findByCode(1)
+        Merchant powersquare = new Merchant(name:"PowerSquare", domain:"powersquare", plan:freePlan).save()
 
         /**
          * Resolve a tenant
          */
-        currentTenant.set(3)
+        currentTenant.set(0)
 
         /**
          * Business
