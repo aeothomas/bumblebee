@@ -8,7 +8,7 @@ import grails.rest.Resource
  * Employ Object
  */
 @Resource()
-class Employee {
+class Employee extends grails.plugin.nimble.core.ProfileBase {
 
     /**
      * The unique number of the employee
@@ -47,5 +47,9 @@ class Employee {
     static embedded = ['address']
 
     static constraints = {
+        address(nullable: true, blank: false)
+        code(nullable: true, blank: false)
+        phoneNumber(nullable: true, blank: false)
+        store(nullable: true, blank: false)
     }
 }

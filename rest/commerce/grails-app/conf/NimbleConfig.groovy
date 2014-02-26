@@ -73,8 +73,8 @@ nimble {
 	}
 
 	implementation {
-		user = "commerce.emp.WibiCloudUser"
-		profile = "commerce.emp.WibiCloudProfile"
+		user = "commerce.emp.User"
+		profile = "commerce.emp.Employee"
 	}
 }
 

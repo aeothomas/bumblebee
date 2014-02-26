@@ -1,3 +1,4 @@
+
 dataSource {
     pooled = true
 	driverClassName = "com.mysql.jdbc.Driver"
@@ -9,14 +10,35 @@ hibernate {
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
     hbm2ddl.auto = "create"
 }
+
+/*
+grails {
+    mongo {
+        host = "localhost"
+        port = 27017
+        username = "adminroot"
+        password = "root"
+        databaseName = "test"
+        options {
+            autoConnectRetry = true
+            connectTimeout = 300
+        }
+    }
+}
+*/
+
 // environment specific settings
 environments {
+
+
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost:3306/commerce?useUnicode=yes&characterEncoding=UTF-8&DB_CLOSE_ON_EXIT=FALSE"
-            username = "admin"
-            password = "admin"
+            username = "root"
+            password = "root"
+            //username = "admin"
+            //password = "admin"
         }
 		hibernate {
 			show_sql = true
@@ -45,4 +67,5 @@ environments {
             }
         }
     }
+
 }

@@ -2,9 +2,13 @@ package commerce.acl
 
 import commerce.acl.ApplicationPermissions
 import commerce.acl.SupportRole
+import commerce.emp.Employee
+import commerce.emp.User
+import grails.plugin.nimble.InstanceGenerator
 import grails.plugin.nimble.core.Permission
 import grails.plugin.nimble.core.Role
 import grails.plugin.nimble.core.Group
+import grails.plugin.nimble.core.UserBase
 import grails.transaction.Transactional
 
 
@@ -14,24 +18,13 @@ import grails.transaction.Transactional
 @Transactional
 class WibiAclService {
 
-    public static final String SUPPORT_ROLE = "SUPPORT"
-    public static final String MERCHANT_ROLE = "MERCHANT"
-    public static final String BACK_OFFICE_ROLE = "BACK OFFICE"
-    public static final String STORE_ADMIN_ROLE = "STORE ADMIN"
-    public static final String STORE_EMPLOYEE_ROLE = "STORE EMPLOYEE"
-    public static final String CUSTOMER_ROLE = "CUSTOMER"
-    public static final String STANDARD_ROLE = "STANDARD"
-
-    public static final String REGISTER_APP_GROUP = "REGISTER_APP_GROUP"
-    public static final String BACK_OFFICE_APP_GROUP = "BACK_OFFICE_APP_GROUP"
-
     public static final String ADMIN_PERMISSION_PATTERN = "target:'*'"
 
     def grailsApplication
     def permissionService
-
-    protected static final String APP_PERM_PREFIX = ""
-    protected static final String DEFAULT_PERM = "default"
+    def userService
+    def userManagementService
+    def roleService
 
     def init() {
 
@@ -42,6 +35,10 @@ class WibiAclService {
             grantStandardPermissionsToRole(_role.getPermissions(), role)
         }
         // handle error
+
+        // create default users
+        // create APP user
+
     }
 
     def boolean grantPermissionToRole(String permission, Role role, boolean isAdmin) {
@@ -126,7 +123,40 @@ class WibiAclService {
     }
 
 
-    def serviceMethod() {
+    def UserBase createUser(User account, Employee employee, List<String> roles) {
+
+
+        if(!UserBase.findByUsername("user")) {
+
+            def user = InstanceGenerator.user(grailsApplication)
+            user.username = account.username
+            user.pass = account.pass
+            user.passConfirm = account.passConfirm
+            user.passwordSalt = userManagementService.generatePasswordSalt()
+            user.passwordHash = userManagementService.generatePasswordHash(user.pass, user.passwordSalt)
+            user.enabled = true
+            user.remoteapi = account.remoteapi
+
+            def userProfile = InstanceGenerator.profile(grailsApplication)
+            userProfile.firstName = employee.firstName
+            userProfile.lastName = employee.lastName
+            userProfile.fullName = userProfile.firstName + " " + userProfile.lastName
+            userProfile.owner = user
+            user.profile = employee
+
+            log.info("Creating default user account with username:" + account.username)
+
+            def savedUser = userService.createUser(user)
+            if (savedUser.hasErrors()) {
+                savedUser.errors.each { log.error(it) }
+                throw new RuntimeException("Error creating example user")
+            }
+
+            // add savedUser to roles
+            for (role in roles) {
+                roleService.addMember(savedUser, role)
+            }
+        }
 
     }
 }

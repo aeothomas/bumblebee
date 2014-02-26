@@ -47,6 +47,8 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
         runtime "mysql:mysql-connector-java:5.1.22"
+        //compile "net.sf.ehcache:ehcache-core:2.4.6"
+        //compile 'com.google.code:morphia:0.91'
     }
 
     plugins {
@@ -65,10 +67,13 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.1.1'
         compile ":hibernate:3.6.10.6"
+        //compile ":mongodb:1.3.3"
         compile ":scaffolding:2.0.1"
         compile (':nimble:0.7') {
             excludes "servlet-api"
+            //excludes "hibernate"
         }
-        compile ':cookie:0.51'
+        //compile ":cookie-session:2.0.13"
+        //compile ":memcached:1.0.3.2"
     }
 }

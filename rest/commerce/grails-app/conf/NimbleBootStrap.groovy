@@ -34,6 +34,7 @@ class NimbleBootStrap {
 	def nimbleService
 	def userService
 	def adminsService
+    def userManagementService
 
 	def init = {servletContext ->
 
@@ -41,17 +42,22 @@ class NimbleBootStrap {
 		internalBootStap(servletContext)
 
 		// Execute any custom Nimble related BootStrap for your application below
-
+        def salt
 		if(!UserBase.findByUsername("user")) {
 			// Create example User account
 			def user = InstanceGenerator.user(grailsApplication)
 			user.username = "user"
 			user.pass = 'useR123!'
 			user.passConfirm = 'useR123!'
+            salt = userManagementService.generatePasswordSalt()
+            user.passwordHash = userManagementService.generatePasswordHash(user.pass, salt)
+            user.passwordSalt = salt
 			user.enabled = true
 
 			def userProfile = InstanceGenerator.profile(grailsApplication)
-			userProfile.fullName = "Test User"
+            userProfile.firstName = "Test"
+            userProfile.lastName = "User"
+            userProfile.fullName = userProfile.firstName + " " + userProfile.lastName
 			userProfile.owner = user
 			user.profile = userProfile
 
@@ -71,10 +77,15 @@ class NimbleBootStrap {
 			admin.username = "admin"
 			admin.pass = "admiN123!"
 			admin.passConfirm = "admiN123!"
+            salt = userManagementService.generatePasswordSalt()
+            admin.passwordHash = userManagementService.generatePasswordHash(admin.pass, salt)
+            admin.passwordSalt = salt
 			admin.enabled = true
 
 			def adminProfile = InstanceGenerator.profile(grailsApplication)
-			adminProfile.fullName = "Administrator"
+            adminProfile.firstName = "Administrator"
+            adminProfile.lastName = "Administrator"
+            adminProfile.fullName = adminProfile.firstName + " " + adminProfile.lastName
 			adminProfile.owner = admin
 			admin.profile = adminProfile
 
