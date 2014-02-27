@@ -3,35 +3,30 @@ package commerce.account
 import commerce.CommerceRestController
 import grails.converters.JSON
 
-//import grails.rest.RestfulController
-//import static org.springframework.http.HttpStatus.*
-//import grails.transaction.Transactional
-
-//@Transactional(readOnly = true)
-class MerchantController{
+class MerchantController extends CommerceRestController{
 
     static namespace = 'v1'
 
-    static allowedMethods = [index:"GET", save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def create(){
-        print("*******************")
+    MerchantService merchantService
+
+    @Override
+    def save(){
+
         def newMerchant = new Merchant(params)
-        if(Merchant.find(newMerchant)){
+
+        if(merchantService.isMerchantExist(newMerchant)){
               render "merchant existing"
+        }else{
+            print(Merchant.find(newMerchant))
+            newMerchant.save()
+
+            print(newMerchant.errors)
+            render "new Merchant save"
         }
-        newMerchant.save()
-        render "new Merchant save"
-    }
 
-    def show(Merchant merchantInstance) {
-        render merchantInstance as JSON
     }
-
-    def index(Integer max) {
-        render "merchant index"
-    }
-
 
     /*
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]

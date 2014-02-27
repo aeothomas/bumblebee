@@ -7,7 +7,7 @@ import grails.rest.*
 /**
  * Merchant is a tenant class represents a business unit
  */
-//@Resource()
+@Resource()
 class Merchant implements Tenant{
 
     /**
@@ -40,6 +40,7 @@ class Merchant implements Tenant{
         domain unique:true,blank:false
         address nullable:true, blank:true
         uuid nullable:true
+        plan nullable:true
     }
 
     def beforeInsert() {
