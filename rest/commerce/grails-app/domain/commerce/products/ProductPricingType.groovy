@@ -1,5 +1,7 @@
 package commerce.products
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
+
 /**
  * ProductPricingType specifies the type of pricing is used for the product.
  * For example:

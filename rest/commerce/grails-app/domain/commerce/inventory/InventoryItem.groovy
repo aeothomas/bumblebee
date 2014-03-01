@@ -1,13 +1,16 @@
 package commerce.inventory
 
+import commerce.products.Modifier
 import commerce.products.Product
 import commerce.suppliers.Supplier
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  * The global inventory item which has a unique sku id
  */
 @Resource()
+@MultiTenant
 class InventoryItem{
 	
 	/**
@@ -30,7 +33,9 @@ class InventoryItem{
 	 */
 	double price
 	
-	static hasMany = [globalSupplier: Supplier]
+	static hasMany = [globalSupplier: Supplier,
+            modifiers: Modifier
+    ]
 
 
 	/**
@@ -39,6 +44,8 @@ class InventoryItem{
 	static belongsTo =  Product
 	
     static constraints = {
-		sku unique: true, blank:false
+		sku unique: 'tenantId', blank:false
+        price nullable:true
+
     }
 }

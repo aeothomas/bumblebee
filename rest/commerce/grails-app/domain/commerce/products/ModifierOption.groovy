@@ -1,8 +1,11 @@
 package commerce.products
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
+
 /**
  *  The option in the modifier
  */
+@MultiTenant
 class ModifierOption {
 
     String name
@@ -17,5 +20,6 @@ class ModifierOption {
     static belongsTo = [modifier:Modifier]
 
     static constraints = {
+        name unique:'tenantId'
     }
 }

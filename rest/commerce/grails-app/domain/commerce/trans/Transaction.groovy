@@ -3,12 +3,14 @@ package commerce.trans
 import commerce.emp.Employee
 import commerce.reg.Register
 import commerce.store.Store
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
  *
  */
 @Resource()
+@MultiTenant
 class Transaction {
 
     /**
@@ -69,6 +71,8 @@ class Transaction {
     static hasMany = [lineItem: LineItem]
 
     static constraints = {
-
+        transNum unique: true, blank:false
+        orderNum unique: true, blank:false
+        receiptNum unique: true, blank:false
     }
 }

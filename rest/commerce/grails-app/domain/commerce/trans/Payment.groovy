@@ -1,8 +1,10 @@
 package commerce.trans
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 @Resource()
+@MultiTenant
 class Payment {
 
     String paymentNumber
@@ -20,5 +22,6 @@ class Payment {
     static belongsTo = [transaction:Transaction]
 
     static constraints = {
+        paymentNumber unique: true
     }
 }

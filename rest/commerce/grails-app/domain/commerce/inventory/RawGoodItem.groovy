@@ -2,6 +2,7 @@ package commerce.inventory
 
 import commerce.products.Product
 import commerce.suppliers.Supplier
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
@@ -13,6 +14,7 @@ import grails.rest.Resource
  *
  */
 @Resource()
+@MultiTenant
 class RawGoodItem {
 
 	/**
@@ -40,7 +42,7 @@ class RawGoodItem {
 
 	
     static constraints = {
-        name blank:false
+        name blank:false , unique: 'tenantId'
         cost nullable:true
         quantity nullable:true
 

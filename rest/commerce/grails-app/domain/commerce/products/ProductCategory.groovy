@@ -1,5 +1,8 @@
 package commerce.products
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
+
+@MultiTenant
 class ProductCategory {
 
 	/**
@@ -8,7 +11,7 @@ class ProductCategory {
 	String name
 	
     static constraints = {
-		
+		name unique: 'tenantId'
     }
 	
 	

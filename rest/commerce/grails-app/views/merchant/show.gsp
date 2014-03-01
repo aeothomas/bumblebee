@@ -1,5 +1,5 @@
 
-<%@ page import="commerce.Merchant" %>
+<%@ page import="commerce.account.Merchant" %>
 <!DOCTYPE html>
 <html>
 	<head>

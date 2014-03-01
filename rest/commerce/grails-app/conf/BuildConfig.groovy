@@ -73,7 +73,7 @@ grails.project.dependency.resolution = {
             excludes "servlet-api"
             //excludes "hibernate"
         }
-        //compile ":cookie-session:2.0.13"
-        //compile ":memcached:1.0.3.2"
+        compile ':cookie:0.51'
+        compile ":multi-tenant-single-db:0.8.3"
     }
 }

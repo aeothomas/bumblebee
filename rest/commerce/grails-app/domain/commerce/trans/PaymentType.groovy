@@ -1,5 +1,6 @@
 package commerce.trans
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**

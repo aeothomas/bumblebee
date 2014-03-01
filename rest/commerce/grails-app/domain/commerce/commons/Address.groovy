@@ -1,6 +1,7 @@
 package commerce.commons
 
 import commerce.global.Country
+import grails.plugin.multitenant.core.annotation.MultiTenant
 
 /**
  * The address

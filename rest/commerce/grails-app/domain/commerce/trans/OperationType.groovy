@@ -1,5 +1,7 @@
 package commerce.trans
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
+
 /**
  * It indicates the operation type of the transaction. For example:
  *  1. purchase,
@@ -15,7 +17,7 @@ class OperationType {
     int type
 
     static constraints = {
-        name blank:false
+        name blank:false, unique: true
         type blank:false, unique: true
     }
 }

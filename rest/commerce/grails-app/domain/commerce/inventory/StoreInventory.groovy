@@ -2,12 +2,14 @@ package commerce.inventory
 
 import commerce.store.Store
 import commerce.suppliers.Supplier
+import grails.plugin.multitenant.core.annotation.MultiTenant
 
 /**
  * The details of inventory are held on the one store
  * @author wshao
  *
  */
+@MultiTenant
 class StoreInventory {
 	
 	/**

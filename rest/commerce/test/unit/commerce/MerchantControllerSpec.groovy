@@ -1,7 +1,7 @@
 package commerce
 
-
-
+import commerce.account.Merchant
+import commerce.account.MerchantController
 import grails.test.mixin.*
 import spock.lang.*
 

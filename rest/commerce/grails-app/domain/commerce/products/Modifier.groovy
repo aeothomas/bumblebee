@@ -1,5 +1,6 @@
 package commerce.products
 
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
@@ -12,6 +13,7 @@ import grails.rest.Resource
  *
  */
 @Resource()
+@MultiTenant
 class Modifier {	
 	/**
 	 * Modifier Name
@@ -21,5 +23,6 @@ class Modifier {
     static hasMany = [modifierOption: ModifierOption]
 	
     static constraints = {
+        name unique:'tenantId'
     }
 }

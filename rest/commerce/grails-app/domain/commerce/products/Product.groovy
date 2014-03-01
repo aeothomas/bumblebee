@@ -3,6 +3,7 @@ package commerce.products
 import commerce.business.Department
 import commerce.inventory.InventoryItem
 import commerce.inventory.RawGoodItem
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 
@@ -12,6 +13,7 @@ import grails.rest.Resource
  *
  */
 @Resource()
+@MultiTenant
 class Product {
 
     /**
@@ -41,7 +43,7 @@ class Product {
     Department department
 
     /**
-     * TODO Review required . Should it be StoreInventory or staying at the global level
+     * Cost of the product
      */
     double cost
 
@@ -51,18 +53,18 @@ class Product {
     static hasMany = [productUnitType: ProductUnitType,
             inventoryItem: InventoryItem,
             rawGoodItem: RawGoodItem,
-            modifiers: Modifier,
-            addon: AddOn,
-            excludeOptions: AddOn]
+//            modifiers: Modifier,
+            addon: AddOn]
 
     /**
      * Here, Product will have 0 or 1 product unit type. Enhance using a join table to save space
      * It will have a product unit type while the product pricing type is "sold by unit"
      * */
     static constraints = {
-        name unique: true, blank: false
+        name unique: 'tenantId', blank: false
         category blank: false
         pricingType blank: false
+        cost nullable:true
 
     }
     static mapping = {

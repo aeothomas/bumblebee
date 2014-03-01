@@ -1,3 +1,5 @@
+import commerce.account.Merchant
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -137,3 +139,11 @@ grails {
     }
 }
 remove this line */
+
+/**
+ * MultiTenant Configuration
+ */
+multiTenant {
+//    perTenantBeans = [ "demoService" ]
+    tenantClass = Merchant
+}

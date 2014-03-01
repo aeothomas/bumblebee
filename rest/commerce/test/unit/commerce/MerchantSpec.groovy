@@ -1,5 +1,6 @@
 package commerce
 
+import commerce.account.Merchant
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

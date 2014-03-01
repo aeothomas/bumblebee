@@ -1,6 +1,7 @@
 package commerce.store
 
 import commerce.commons.Address
+import grails.plugin.multitenant.core.annotation.MultiTenant
 import grails.rest.Resource
 
 /**
@@ -9,6 +10,7 @@ import grails.rest.Resource
  *
  */
 @Resource()
+@MultiTenant
 class Store {
 	/**
 	 * The name of store
