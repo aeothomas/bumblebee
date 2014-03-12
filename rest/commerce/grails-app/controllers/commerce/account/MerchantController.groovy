@@ -1,7 +1,13 @@
 package commerce.account
 
 import commerce.CommerceRestController
-import grails.converters.JSON
+import commerce.acl.WibiAclService
+import commerce.emp.Employee
+import commerce.emp.User
+import grails.plugin.multitenant.core.CurrentTenant
+import grails.transaction.Transactional
+import org.springframework.context.ApplicationContext
+import org.springframework.web.context.support.WebApplicationContextUtils
 
 class MerchantController extends CommerceRestController{
 
@@ -11,7 +17,15 @@ class MerchantController extends CommerceRestController{
 
     MerchantService merchantService
 
+    WibiAclService wibiAclService
+
+    /**
+     * Add a new merchant into the system.
+     * It also wil create a admin user the user database.
+     * @return
+     */
     @Override
+    @Transactional
     def save(){
 
         def newMerchant = new Merchant(params)
@@ -19,108 +33,31 @@ class MerchantController extends CommerceRestController{
         if(merchantService.isMerchantExist(newMerchant)){
               render "merchant existing"
         }else{
-            print(Merchant.find(newMerchant))
-            newMerchant.save()
+            if(!newMerchant.save()){
+                print(newMerchant.errors)
+                render "error on creating merchant"
+            }else{
 
-            print(newMerchant.errors)
-            render "new Merchant save"
-        }
+                CurrentTenant currentTenant
+                ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+                currentTenant = (CurrentTenant) ctx.getBean("currentTenant")
+                currentTenant.set((Integer)newMerchant.getId())
 
-    }
+                def newUser = new User()
+                newUser.username = params["email"]
+                newUser.pass = params["password"]
+                newUser.passConfirm = params["password"]
 
-    /*
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+                Employee employee = new Employee()
+                employee.email = params["email"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Merchant.list(params), model:[merchantInstanceCount: Merchant.count()]
-    }
-
-    def show(Merchant merchantInstance) {
-        respond merchantInstance
-    }
-
-    def create() {
-        respond new Merchant(params)
-    }
-
-    @Transactional
-    def save(Merchant merchantInstance) {
-        if (merchantInstance == null) {
-            notFound()
-            return
-        }
-
-        if (merchantInstance.hasErrors()) {
-            respond merchantInstance.errors, view:'create'
-            return
-        }
-
-        merchantInstance.save flush:true
-
-        request.withFormat {
-            form {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'merchantInstance.label', default: 'Merchant'), merchantInstance.id])
-                redirect merchantInstance
+                wibiAclService.createUser(newUser,employee,null)
+                render "new Merchant save"
             }
-            '*' { respond merchantInstance, [status: CREATED] }
         }
+
     }
 
-    def edit(Merchant merchantInstance) {
-        respond merchantInstance
-    }
 
-    @Transactional
-    def update(Merchant merchantInstance) {
-        if (merchantInstance == null) {
-            notFound()
-            return
-        }
 
-        if (merchantInstance.hasErrors()) {
-            respond merchantInstance.errors, view:'edit'
-            return
-        }
-
-        merchantInstance.save flush:true
-
-        request.withFormat {
-            form {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Merchant.label', default: 'Merchant'), merchantInstance.id])
-                redirect merchantInstance
-            }
-            '*'{ respond merchantInstance, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(Merchant merchantInstance) {
-
-        if (merchantInstance == null) {
-            notFound()
-            return
-        }
-
-        merchantInstance.delete flush:true
-
-        request.withFormat {
-            form {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Merchant.label', default: 'Merchant'), merchantInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'merchantInstance.label', default: 'Merchant'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
-    */
 }

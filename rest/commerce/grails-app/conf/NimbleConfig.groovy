@@ -76,6 +76,16 @@ nimble {
 		user = "commerce.emp.User"
 		profile = "commerce.emp.Employee"
 	}
+
+
+    passwords {
+        mustcontain {
+            lowercase = false
+            uppercase = false
+            numbers = false
+            symbols = false
+        }
+    }
 }
 
 environments {

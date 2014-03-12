@@ -13,7 +13,7 @@ class UrlMappings {
 		*/
 
         // map to merchants and it's children
-        "/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1')
+        "/merchants"(version:'1.0', resources:'merchant', namespace:'v1')
 		"/merchants"(version:'1.0', resources:'merchant', excludes:['create', 'edit'], namespace:'v1') {
 
             // map to products and it's children

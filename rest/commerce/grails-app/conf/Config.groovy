@@ -78,6 +78,9 @@ grails.plugin.cookiesession.comment = 'Acme Session Info'
 grails.plugin.cookiesession.serializer = 'kryo'
 grails.plugin.cookiesession.springsecuritycompatibility = true
 
+grails.gorm.default.constraints = {
+    '*'(nullable: true)
+}
 
 /**
  *
